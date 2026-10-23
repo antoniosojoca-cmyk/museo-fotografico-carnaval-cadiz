@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>Museo Fotográfico del Carnaval de Cádiz</title>
+<meta name="description" content="Un museo fotográfico dedicado al Concurso Oficial de Agrupaciones Carnavalescas de Cádiz, a sus agrupaciones y a todas sus épocas.">
+
+<style>
+:root {
+  --negro: #090909;
+  --oro: #c6a568;
+  --marfil: #eee6d8;
+  --gris: #b8b0a4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  margin: 0;
+  background: var(--negro);
+  color: var(--marfil);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cabecera {
+  min-height: 76px;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid #51432c;
+  background: #090909;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.emblema {
+  color: var(--oro);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.nombre-museo {
+  color: var(--oro);
+  font-size: 17px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.nombre-museo small {
+  display: block;
+  margin-top: 5px;
+  color: var(--marfil);
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+nav a {
+  padding: 8px 0;
+  font-size: 14px;
+  transition: color .25s;
+}
+
+nav a:hover {
+  color: var(--oro);
+}
+
+.portada {
+  position: relative;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.97) 0%,
+      rgba(0,0,0,.83) 38%,
+      rgba(0,0,0,.18) 100%),
+    url("https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=2000&q=85")
+    center 42% / cover no-repeat;
+}
+
+.portada-contenido {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 90%);
+  margin: 65px 0 75px 6%;
+}
+
+.eyebrow {
+  color: var(--oro);
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 23px 0;
+  font-size: clamp(35px, 5.1vw, 67px);
+  font-weight: normal;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+h1 span {
+  display: block;
+  color: var(--oro);
+}
+
+.ornamento {
+  width: 100px;
+  height: 1px;
+  margin: 27px 0;
+  background: var(--oro);
+}
+
+.introduccion {
+  max-width: 520px;
+  color: #e0d8cb;
+  font-size: 19px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 15px 24px;
+  border: 1px solid var(--oro);
+  color: var(--oro);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background .25s, color .25s;
+}
+
+.boton:hover {
+  background: var(--oro);
+  color: #090909;
+}
+
+.seccion {
+  padding: 72px 5% 40px;
+}
+
+.cabecera-seccion {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.cabecera-seccion .eyebrow {
+  font-size: 11px;
+}
+
+h2 {
+  margin: 14px 0;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: normal;
+}
+
+.cabecera-seccion p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--gris);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.salas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.sala {
+  min-width: 0;
+  background: #0c0c0c;
+  transition: transform .3s;
+}
+
+.sala:hover {
+  transform: translateY(-5px);
+}
+
+.foto-sala {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #17130e;
+}
+
+.foto-sala img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+
+.sala:hover .foto-sala img {
+  transform: scale(1.04);
+}
+
+.numero {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  padding: 7px 10px;
+  background: rgba(0,0,0,.75);
+  color: var(--oro);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.info-sala {
+  padding: 23px 8px 28px;
+  text-align: center;
+  border-bottom: 1px solid #4a3b25;
+}
+
+.info-sala h3 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.info-sala p {
+  min-height: 24px;
+  margin: 0;
+  color: var(--gris);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.ver-sala {
+  display: inline-block;
+  margin-top: 21px;
+  color: var(--oro);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ver-sala:hover {
+  color: #fff0c9;
+}
+
+.historia {
+  padding: 75px 7%;
+  margin-top: 35px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(9,9,9,.88), rgba(9,9,9,.94)),
+    url("https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80")
+    center / cover;
+}
+
+.historia p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--gris);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.pie {
+  padding: 35px 5%;
+  border-top: 1px solid #3b3021;
+  text-align: center;
+}
+
+.pie .titulo-pie {
+  color: var(--oro);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.pie p {
+  color: #9e968a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 950px) {
+  .cabecera {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: flex-start;
+    gap: 10px 20px;
+  }
+
+  .salas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecera {
+    padding: 18px 5%;
+  }
+
+  .nombre-museo {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .nombre-museo small {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    gap: 5px 15px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .portada {
+    min-height: 570px;
+    background-position: 58% center;
+  }
+
+  .portada-contenido {
+    margin: 55px 5%;
+    width: 90%;
+  }
+
+  .introduccion {
+    font-size: 17px;
+  }
+
+  .seccion {
+    padding: 55px 5% 30px;
+  }
+
+  .salas {
+    gap: 26px 12px;
+  }
+
+  .info-sala {
+    padding: 18px 4px 20px;
+  }
+
+  .info-sala h3 {
+    font-size: 17px;
+  }
+
+  .info-sala p {
+    font-size: 13px;
+  }
+
+  .ver-sala {
+    font-size: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="cabecera">
+  <a class="marca" href="#inicio" aria-label="Inicio del museo">
+    <span class="emblema">♜</span>
+    <span class="nombre-museo">
+      Museo Fotográfico
+      <small>del Carnaval de Cádiz</small>
+    </span>
+  </a>
+
+  <nav aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a>
+    <a href="#comparsas">Comparsas</a>
+    <a href="#chirigotas">Chirigotas</a>
+    <a href="#coros">Coros</a>
+    <a href="#cuartetos">Cuartetos</a>
+    <a href="#historia">La historia</a>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <section class="portada">
+    <div class="portada-contenido">
+      <div class="eyebrow">Una exposición permanente</div>
+
+      <h1>
+        Museo Fotográfico
+        <span>del Carnaval de Cádiz</span>
+      </h1>
+
+      <div class="ornamento"></div>
+
+      <p class="introduccion">
+        Un recorrido visual por el arte, el ingenio y la historia
+        del Concurso Oficial de Agrupaciones Carnavalescas.
+        Comparsas, chirigotas, coros y cuartetos de todas las épocas.
+      </p>
+
+      <a class="boton" href="#exposicion">
+        Entrar en la exposición &nbsp; →
+      </a>
+    </div>
+  </section>
+
+  <section class="seccion" id="exposicion">
+    <div class="cabecera-seccion">
+      <div class="eyebrow">Elige tu recorrido</div>
+      <h2>Las salas del museo</h2>
+      <p>
+        Cuatro maneras de sentir el Carnaval.
+        Cuatro formas de entender el arte que cada año cobra vida
+        sobre las tablas del Gran Teatro Falla.
+      </p>
+    </div>
+
+    <div class="salas">
+
+      <article class="sala" id="comparsas">
+        <a href="comparsas.html" aria-label="Entrar en la sala de Comparsas">
+          <div class="foto-sala">
+            <img
+              src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=800&q=80"
+              alt="Ambiente teatral y artístico, imagen provisional"
+              loading="lazy">
+            <span class="numero">SALA I</span>
+          </div>
+          <div class="info-sala">
+            <h3>Comparsas</h3>
+            <p>La emoción y la poesía</p>
+            <span class="ver-sala">Ver galería &nbsp; →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="sala" id="chirigotas">
+        <a href="chirigotas.html" aria-label="Entrar en la sala de Chirigotas">
+          <div class="foto-sala">
+            <img
+              src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80"
+              alt="Ambiente de espectáculo en directo, imagen provisional"
+              loading="lazy">
+            <span class="numero">SALA II</span>
+          </div>
+          <div class="info-sala">
+            <h3>Chirigotas</h3>
+            <p>El ingenio y la risa</p>
+            <span class="ver-sala">Ver galería &nbsp; →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="sala" id="coros">
+        <a href="coros.html" aria-label="Entrar en la sala de Coros">
+          <div class="foto-sala">
+            <img
+              src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80"
+              alt="Público y espectáculo musical, imagen provisional"
+              loading="lazy">
+            <span class="numero">SALA III</span>
+          </div>
+          <div class="info-sala">
+            <h3>Coros</h3>
+            <p>La fuerza de muchas voces</p>
+            <span class="ver-sala">Ver galería &nbsp; →</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="sala" id="cuartetos">
+        <a href="cuartetos.html" aria-label="Entrar en la sala de Cuartetos">
+          <div class="foto-sala">
+            <img
+              src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=800&q=80"
+              alt="Actuación en directo, imagen provisional"
+              loading="lazy">
+            <span class="numero">SALA IV</span>
+          </div>
+          <div class="info-sala">
+            <h3>Cuartetos</h3>
+            <p>El teatro dentro del Carnaval</p>
+            <span class="ver-sala">Ver galería &nbsp; →</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="historia" id="historia">
+    <div class="eyebrow">Memoria viva del Falla</div>
+    <h2>Un patrimonio que merece ser recordado</h2>
+    <p>
+      Cada agrupación deja una huella.
+      Cada tipo cuenta una historia.
+      Cada actuación forma parte de una memoria colectiva
+      que merece conservarse en imágenes y transmitirse
+      a las generaciones que están por venir.
+    </p>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="titulo-pie">Museo Fotográfico del Carnaval de Cádiz</div>
+  <p>
+    Una exposición visual dedicada al COAC y a sus agrupaciones.<br>
+    Proyecto personal en construcción.
+  </p>
+</footer>
+
+</body>
+</html>
