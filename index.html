@@ -16,9 +16,13 @@
   --gris: #b9b0a3;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -27,7 +31,10 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 
-a { color: inherit; text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 header {
   min-height: 65px;
@@ -58,7 +65,11 @@ nav a {
   transition: color .25s;
 }
 
-nav a:hover { color: var(--oro); }
+nav a:hover {
+  color: var(--oro);
+}
+
+/* PORTADA */
 
 .portada {
   min-height: 680px;
@@ -149,13 +160,15 @@ h1 {
   background: var(--oro);
 }
 
+/* EXPOSICIONES */
+
 section.exposiciones {
-  padding: 80px 7%;
+  padding: 80px 5%;
 }
 
 .intro {
   max-width: 760px;
-  margin: 0 auto 45px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
@@ -174,13 +187,24 @@ section.exposiciones {
   line-height: 1.8;
 }
 
-
-  .salas {
-  max-width: 1450px;
-  margin: auto;
+.salas {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 45px;
+}
+
+/* Cada texto queda dentro de su propia fotografía */
+
+.sala {
+  position: relative;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  background: #101010;
+  isolation: isolate;
 }
 
 .sala img {
@@ -188,6 +212,7 @@ section.exposiciones {
   width: 100%;
   height: 440px;
   object-fit: cover;
+  object-position: center;
   filter: brightness(.78);
   transition: transform .6s, filter .6s;
 }
@@ -199,33 +224,42 @@ section.exposiciones {
 
 .sala-texto {
   position: absolute;
+  z-index: 1;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 55px 28px 25px;
-  background: linear-gradient(transparent, rgba(0,0,0,.96));
+  padding: 65px 28px 25px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,0,0,.80) 45%,
+    rgba(0,0,0,.97) 100%
+  );
 }
 
 .sala h3 {
   margin: 0 0 7px;
   color: #f1d9a3;
-  font-size: 29px;
+  font-size: 32px;
   font-weight: normal;
 }
 
 .sala p {
   margin: 0;
   color: #e4ddd2;
+  font-size: 16px;
   line-height: 1.6;
 }
 
 .sala-texto span {
   display: inline-block;
-  margin-top: 13px;
+  margin-top: 15px;
   color: var(--oro);
   font-size: 12px;
   letter-spacing: 1px;
 }
+
+/* HISTORIA */
 
 .historia {
   padding: 75px 7%;
@@ -237,6 +271,8 @@ section.exposiciones {
   max-width: 850px;
   margin: auto;
 }
+
+/* PIE DE PÁGINA */
 
 footer {
   padding: 35px 6%;
@@ -255,69 +291,15 @@ footer small {
   line-height: 1.8;
 }
 
-footer a { text-decoration: underline; }
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+footer a {
+  text-decoration: underline;
 }
 
-@media (max-width: 700px) {
-  header {
-    flex-direction: column;
-    padding: 18px 4%;
-  }
+/* BOTÓN DE MÚSICA */
 
-  nav { justify-content: center; gap: 12px 17px; }
-
-  .logo { font-size: 15px; text-align: center; }
-
-  .portada {
-    min-height: 580px;
-    height: 78vh;
-    background-position: center;
-  }
-
-  .sobretitulo { letter-spacing: 3px; }
-
-  section.exposiciones { padding: 55px 6%; }
-
-  .salas { grid-template-columns: 1fr; gap: 25px; }
-
-  .sala img { height: 300px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
-</head>
-
-<!-- MÚSICA DE LA PORTADA -->
-<div class="control-musica">
-  <iframe
-    id="musicaCarnaval"
-    width="0"
-    height="0"
-    src="https://www.youtube-nocookie.com/embed/An-EktVYRzs?enablejsapi=1&amp;playsinline=1"
-    title="Música del Museo del Carnaval"
-    allow="autoplay; encrypted-media"
-    aria-hidden="true">
-  </iframe>
-
-  <button id="botonMusica" type="button" aria-pressed="false">
-    ♫ ESCUCHAR MÚSICA
-  </button>
-</div>
-
-<style>
 .control-musica {
   position: fixed;
-  z-index: 20;
+  z-index: 100;
   right: 22px;
   bottom: 22px;
 }
@@ -333,8 +315,8 @@ footer a { text-decoration: underline; }
 
 #botonMusica {
   padding: 13px 18px;
-  background: rgba(8,8,8,.92);
-  color: #d1b477;
+  background: rgba(8,8,8,.94);
+  color: var(--oro);
   border: 1px solid rgba(209,180,119,.75);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 11px;
@@ -343,52 +325,81 @@ footer a { text-decoration: underline; }
 }
 
 #botonMusica:hover {
-  background: #d1b477;
+  background: var(--oro);
   color: #080808;
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MÓVILES */
+
 @media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    padding: 18px 4%;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px 17px;
+  }
+
+  .logo {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .portada {
+    min-height: 580px;
+    height: 78vh;
+    background-position: center;
+  }
+
+  .sobretitulo {
+    letter-spacing: 3px;
+  }
+
+  section.exposiciones {
+    padding: 55px 5%;
+  }
+
+  .salas {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sala img {
+    height: 350px;
+  }
+
+  .sala h3 {
+    font-size: 29px;
+  }
+
   .control-musica {
     right: 12px;
     bottom: 12px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
 </style>
-
-<script>
-(function () {
-  const boton = document.getElementById("botonMusica");
-  const reproductor = document.getElementById("musicaCarnaval");
-  let preparada = false;
-  let sonando = false;
-
-  boton.addEventListener("click", function () {
-    if (!preparada) {
-      reproductor.src =
-        "https://www.youtube-nocookie.com/embed/An-EktVYRzs?autoplay=1&enablejsapi=1&playsinline=1";
-      preparada = true;
-      sonando = true;
-      boton.textContent = "Ⅱ PAUSAR MÚSICA";
-      boton.setAttribute("aria-pressed", "true");
-    } else {
-      reproductor.contentWindow.postMessage(
-        JSON.stringify({
-          event: "command",
-          func: sonando ? "pauseVideo" : "playVideo",
-          args: []
-        }),
-        "https://www.youtube-nocookie.com"
-      );
-
-      sonando = !sonando;
-      boton.textContent = sonando
-        ? "Ⅱ PAUSAR MÚSICA"
-        : "♫ REANUDAR MÚSICA";
-      boton.setAttribute("aria-pressed", String(sonando));
-    }
-  });
-})();
-</script>
+</head>
 
 <body>
 
@@ -402,6 +413,7 @@ footer a { text-decoration: underline; }
 </header>
 
 <main>
+
   <section class="portada">
     <div class="portada-contenido">
       <div class="sobretitulo">Cádiz · Memoria · Coplas</div>
@@ -425,6 +437,7 @@ footer a { text-decoration: underline; }
     </div>
 
     <div class="salas">
+
       <a class="sala" href="comparsas.html">
         <img
           src="https://commons.wikimedia.org/wiki/Special:FilePath/Atrapados_en_el_Tiempo.jpg"
@@ -472,6 +485,7 @@ footer a { text-decoration: underline; }
           <span>VISITAR LA SALA →</span>
         </div>
       </a>
+
     </div>
   </section>
 
@@ -490,17 +504,73 @@ footer a { text-decoration: underline; }
       </p>
     </div>
   </section>
+
 </main>
 
 <footer>
   <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
   <small>
-    Fotografías de Carnaval: autores y licencias disponibles en
+    Fotografía de portada del Carnaval de Cádiz.
+    Fotografías de las salas: consulta autores y licencias en
     <a href="https://commons.wikimedia.org/wiki/Category:Carnival_of_C%C3%A1diz"
        target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
-    Algunas imágenes pueden ser de actuaciones callejeras y no del COAC.
   </small>
 </footer>
+
+<!-- MÚSICA DE LA PORTADA: EL BLOQUE ESTÁ DENTRO DE BODY -->
+
+<div class="control-musica">
+  <iframe
+    id="musicaCarnaval"
+    width="1"
+    height="1"
+    src="about:blank"
+    title="Reproductor de música del museo"
+    allow="autoplay; encrypted-media"
+    aria-hidden="true">
+  </iframe>
+
+  <button id="botonMusica" type="button" aria-pressed="false">
+    ♫ ESCUCHAR MÚSICA
+  </button>
+</div>
+
+<script>
+(function () {
+  const boton = document.getElementById("botonMusica");
+  const reproductor = document.getElementById("musicaCarnaval");
+  let preparada = false;
+  let sonando = false;
+
+  boton.addEventListener("click", function () {
+    if (!preparada) {
+      reproductor.src =
+        "https://www.youtube-nocookie.com/embed/An-EktVYRzs?autoplay=1&enablejsapi=1&playsinline=1";
+
+      preparada = true;
+      sonando = true;
+      boton.textContent = "Ⅱ PAUSAR MÚSICA";
+      boton.setAttribute("aria-pressed", "true");
+      return;
+    }
+
+    reproductor.contentWindow.postMessage(
+      JSON.stringify({
+        event: "command",
+        func: sonando ? "pauseVideo" : "playVideo",
+        args: []
+      }),
+      "https://www.youtube-nocookie.com"
+    );
+
+    sonando = !sonando;
+    boton.textContent = sonando
+      ? "Ⅱ PAUSAR MÚSICA"
+      : "♫ REANUDAR MÚSICA";
+    boton.setAttribute("aria-pressed", String(sonando));
+  });
+})();
+</script>
 
 </body>
 </html>
