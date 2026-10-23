@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,8 +60,6 @@ nav a {
 
 nav a:hover { color: var(--oro); }
 
-/* PORTADA PANORÁMICA DEL FALLA */
-
 .portada {
   min-height: 680px;
   height: calc(100vh - 65px);
@@ -75,21 +74,21 @@ nav a:hover { color: var(--oro); }
   background-image:
     linear-gradient(
       to bottom,
-      rgba(0,0,0,.10) 0%,
-      rgba(0,0,0,.12) 35%,
-      rgba(0,0,0,.52) 72%,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.18) 35%,
+      rgba(0,0,0,.62) 72%,
       #080808 100%
     ),
     linear-gradient(
       to right,
-      rgba(0,0,0,.20),
+      rgba(0,0,0,.30),
       transparent 30%,
       transparent 70%,
-      rgba(0,0,0,.20)
+      rgba(0,0,0,.30)
     ),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Falla1%20-%20panoramio.jpg");
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Carnaval_de_C%C3%A1diz_chirigota.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 38%;
   background-repeat: no-repeat;
 }
 
@@ -195,13 +194,13 @@ section.exposiciones {
   width: 100%;
   height: 350px;
   object-fit: cover;
-  filter: brightness(.75);
+  filter: brightness(.78);
   transition: transform .6s, filter .6s;
 }
 
 .sala:hover img {
   transform: scale(1.04);
-  filter: brightness(.95);
+  filter: brightness(.98);
 }
 
 .sala-texto {
@@ -340,8 +339,10 @@ footer a { text-decoration: underline; }
 
     <div class="salas">
       <a class="sala" href="comparsas.html">
-        <img src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
-             alt="Escenario iluminado de un espectáculo" loading="lazy">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Atrapados_en_el_Tiempo.jpg"
+          alt="Agrupación carnavalesca"
+          loading="lazy">
         <div class="sala-texto">
           <h3>Comparsas</h3>
           <p>La poesía, las voces y la emoción de las comparsas.</p>
@@ -350,8 +351,10 @@ footer a { text-decoration: underline; }
       </a>
 
       <a class="sala" href="chirigotas.html">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
-             alt="Ambiente de un espectáculo musical" loading="lazy">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnaval_de_C%C3%A1diz_chirigota.jpg"
+          alt="Chirigota cantando durante el Carnaval de Cádiz"
+          loading="lazy">
         <div class="sala-texto">
           <h3>Chirigotas</h3>
           <p>El ingenio, la ironía y las risas del Carnaval.</p>
@@ -360,8 +363,10 @@ footer a { text-decoration: underline; }
       </a>
 
       <a class="sala" href="coros.html">
-        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
-             alt="Público y escenario de un concierto" loading="lazy">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Coro_de_C%C3%A1diz.JPG"
+          alt="Coro del Carnaval de Cádiz"
+          loading="lazy">
         <div class="sala-texto">
           <h3>Coros</h3>
           <p>Las voces, los tanguillos y el espectáculo coral.</p>
@@ -370,8 +375,10 @@ footer a { text-decoration: underline; }
       </a>
 
       <a class="sala" href="cuartetos.html">
-        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
-             alt="Escenario de una actuación en directo" loading="lazy">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A1diz_Carnaval_Chirigota.jpg"
+          alt="Agrupación con disfraces carnavalescos"
+          loading="lazy">
         <div class="sala-texto">
           <h3>Cuartetos</h3>
           <p>Los personajes, la interpretación y el humor gaditano.</p>
@@ -401,15 +408,16 @@ footer a { text-decoration: underline; }
 <footer>
   <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
   <small>
-    Fotografía panorámica del interior del Gran Teatro Falla:
-    Falla1 - panoramio.jpg, Wikimedia Commons.
-    <a href="https://commons.wikimedia.org/wiki/Category:Gran_Teatro_Falla_-_Interior"
-       target="_blank" rel="noopener noreferrer">Consultar archivo y licencia</a>.
+    Fotografías de Carnaval: autores y licencias disponibles en
+    <a href="https://commons.wikimedia.org/wiki/Category:Carnival_of_C%C3%A1diz"
+       target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
+    Algunas imágenes pueden ser de actuaciones callejeras y no del COAC.
   </small>
 </footer>
 
 </body>
 </html>
+
 
 
 
