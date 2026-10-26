@@ -1,288 +1,728 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comparsas | Museo Fotográfico del Carnaval de Cádiz</title>
+<title>Sala de Comparsas | Museo Fotográfico del Carnaval de Cádiz</title>
 
 <style>
-*{box-sizing:border-box}
-html{background:#050505;scroll-behavior:smooth}
-body{
-  margin:0;background:#050505;color:#eee;
-  font-family:Georgia,"Times New Roman",serif;
+* { box-sizing: border-box; }
+
+:root {
+  --fondo: #080808;
+  --oro: #d5b779;
+  --oro-oscuro: #796039;
+  --texto: #eee6d8;
 }
-header{
-  text-align:center;padding:35px 18px 22px;
-  background:linear-gradient(#17130c,#050505);
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Georgia, "Times New Roman", serif;
 }
-header h1{
-  color:#d4b574;font-size:clamp(32px,5vw,54px);
-  font-weight:normal;margin:10px 0;
+
+header {
+  text-align: center;
+  padding: 38px 18px 28px;
+  background: linear-gradient(#19140c, #080808);
+  border-bottom: 1px solid var(--oro-oscuro);
 }
-header p{color:#c9c0ae;letter-spacing:2px;font-size:13px}
-.back{
-  display:inline-block;color:#d4b574;text-decoration:none;
-  border:1px solid #8c713d;padding:10px 18px;
-  margin:8px 0 15px;letter-spacing:1px;font-size:13px;
+
+header h1 {
+  color: var(--oro);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin: 0;
 }
-.back:hover{background:#d4b574;color:#080808}
-.intro{
-  max-width:850px;margin:0 auto;padding:12px 22px 28px;
-  text-align:center;line-height:1.8;color:#d0c8ba;
+
+header p {
+  color: #cfc3ae;
+  line-height: 1.8;
+  margin: 14px auto 0;
+  max-width: 750px;
 }
-.carousel{width:100%;position:relative;background:#000}
-.slide{display:none;width:100%;text-align:center}
-.slide.active{display:block;animation:aparecer .7s ease}
-.slide img{
-  display:block;width:100%;height:min(68vw,690px);
-  min-height:300px;object-fit:contain;
-  margin:auto;background:#000;
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px;
+  border-bottom: 1px solid #392e1d;
 }
-.caption{
-  color:#d4b574;padding:12px 10px 18px;
-  font-size:17px;letter-spacing:1px;
+
+nav a, .volver {
+  color: var(--oro);
+  text-decoration: none;
 }
-.arrow{
-  position:absolute;top:45%;transform:translateY(-50%);
-  border:0;border-radius:50%;width:48px;height:48px;
-  background:#090909b8;color:#e0c27f;font-size:30px;
-  cursor:pointer;
+
+nav a:hover, .volver:hover { color: white; }
+
+.intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 20px;
 }
-.arrow:hover{background:#c6a35d;color:#050505}
-.prev{left:18px}.next{right:18px}
-.dots{
-  display:flex;justify-content:center;gap:10px;
-  flex-wrap:wrap;padding:15px 12px 28px;
+
+.intro h2, .seccion-titulo {
+  color: var(--oro);
+  font-weight: normal;
 }
-.dot{
-  width:11px;height:11px;border-radius:50%;
-  border:1px solid #d4b574;background:#171717;cursor:pointer;
+
+.intro h2 { font-size: clamp(1.5rem, 4vw, 2.3rem); }
+
+.intro p {
+  color: #c9beac;
+  line-height: 1.9;
 }
-.dot.active{background:#d4b574;transform:scale(1.2)}
-.section-title{
-  text-align:center;color:#d4b574;font-size:26px;
-  font-weight:normal;margin:22px 12px 10px;
+
+/* CARRUSEL FOTOGRÁFICO */
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+  border-top: 1px solid #594526;
+  border-bottom: 1px solid #594526;
 }
-.music{
-  max-width:780px;margin:0 auto 45px;padding:22px;
-  text-align:center;border-top:1px solid #4e4027;
+
+.marco {
+  position: relative;
+  width: 100%;
+  height: min(62vw, 680px);
+  min-height: 280px;
+  background: #000;
 }
-.music p{color:#c9c0ae;line-height:1.7}
-select,button{
-  font-family:Georgia,"Times New Roman",serif;
+
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  margin: 0;
 }
-select{
-  display:block;width:100%;max-width:520px;margin:18px auto;
-  padding:13px;background:#111;color:#e1c681;
-  border:1px solid #8c713d;font-size:16px;
+
+.slide.activa {
+  display: block;
+  animation: aparecer .7s ease;
 }
-.play{
-  background:#d4b574;color:#090909;border:0;
-  padding:13px 23px;cursor:pointer;font-size:15px;
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
 }
-.play:hover{background:#f0d79b}
-#player{width:1px;height:1px;position:absolute;left:-10000px}
-footer{
-  text-align:center;color:#94866d;padding:25px 15px;
-  border-top:1px solid #302719;font-size:13px;
+
+.slide figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 45px 20px 22px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,.92));
 }
-@keyframes aparecer{from{opacity:.35}to{opacity:1}}
-@media(max-width:600px){
-  header{padding-top:25px}
-  .slide img{height:65vh;min-height:260px}
-  .arrow{width:40px;height:40px;font-size:25px}
-  .prev{left:8px}.next{right:8px}
+
+.slide h2 {
+  margin: 0 0 6px;
+  color: var(--oro);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: normal;
+}
+
+.slide p { margin: 0; }
+
+@keyframes aparecer {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+.flecha {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(213,183,121,.65);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,.65);
+  color: var(--oro);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.flecha:hover { background: #332819; }
+.flecha.izquierda { left: 14px; }
+.flecha.derecha { right: 14px; }
+
+.puntos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 16px 10px;
+  background: #080808;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--oro);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.punto.activo {
+  background: var(--oro);
+}
+
+/* PRIMEROS PREMIOS */
+
+.premios {
+  max-width: 1050px;
+  margin: 48px auto;
+  padding: 0 18px;
+}
+
+.seccion-titulo {
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  margin-bottom: 12px;
+}
+
+.seccion-intro {
+  color: #c9beac;
+  text-align: center;
+  line-height: 1.8;
+  margin: 0 auto 30px;
+}
+
+.ficha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  margin: 0 0 17px;
+  background: linear-gradient(100deg, #15130f, #0b0b0b);
+  border: 1px solid #594526;
+  border-left: 3px solid var(--oro);
+  border-radius: 3px;
+}
+
+.ficha-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.ficha h3 {
+  color: var(--oro);
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  font-weight: normal;
+  margin: 0 0 8px;
+}
+
+.ficha .autor {
+  color: #cfc3ae;
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.distintivo {
+  display: inline-block;
+  color: var(--oro);
+  border: 1px solid var(--oro-oscuro);
+  padding: 6px 10px;
+  font-size: .72rem;
+  letter-spacing: 1.2px;
+  margin-bottom: 13px;
+}
+
+.escuchar {
+  display: inline-block;
+  border: 1px solid var(--oro);
+  background: transparent;
+  color: var(--oro);
+  padding: 10px 15px;
+  font-family: inherit;
+  font-size: .95rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.escuchar:hover, .escuchar.reproduciendo {
+  background: var(--oro);
+  color: #080808;
+}
+
+.foto-ficha {
+  flex: 0 0 155px;
+  width: 155px;
+  height: 115px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 2px;
+  background: #000;
+}
+
+.nota-musica {
+  text-align: center;
+  color: #b9ad99;
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-top: 24px;
+}
+
+#estado-musica {
+  color: var(--oro);
+  min-height: 1.5em;
+  text-align: center;
+  margin-top: 18px;
+}
+
+#player {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -10px;
+  bottom: 0;
+  overflow: hidden;
+  opacity: .01;
+  pointer-events: none;
+}
+
+.volver-contenedor {
+  text-align: center;
+  padding: 12px 20px 45px;
+}
+
+.volver {
+  display: inline-block;
+  border: 1px solid var(--oro-oscuro);
+  padding: 12px 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #a99b82;
+  border-top: 1px solid #392e1d;
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 560px) {
+  .marco {
+    height: 68vw;
+    min-height: 240px;
+  }
+
+  .slide figcaption { padding-bottom: 16px; }
+  .flecha { width: 37px; height: 37px; }
+
+  .ficha {
+    padding: 13px;
+    gap: 12px;
+  }
+
+  .foto-ficha {
+    flex-basis: 105px;
+    width: 105px;
+    height: 95px;
+  }
+
+  .distintivo {
+    font-size: .62rem;
+    letter-spacing: .6px;
+    padding: 5px 6px;
+  }
+
+  .escuchar {
+    padding: 9px 10px;
+    font-size: .85rem;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
-  <a class="back" href="index.html">← VOLVER AL MUSEO</a>
   <h1>La sala de las Comparsas</h1>
-  <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
+  <p>Museo Fotográfico del Carnaval de Cádiz</p>
 </header>
 
-<div class="intro">
+<nav aria-label="Navegación del museo">
+  <a href="index.html">← Portada del museo</a>
+  <a href="#galeria">Galería fotográfica</a>
+  <a href="#primeros-premios">Primeros premios</a>
+</nav>
+
+<section class="intro">
+  <h2>La poesía, las voces y la emoción de las comparsas</h2>
   <p>
-    La emoción de las voces, la fuerza de las letras y la poesía
-    hecha copla. Un homenaje a las comparsas que han convertido
-    el Carnaval de Cádiz en una forma única de sentir y contar la vida.
+    Un recorrido por agrupaciones que dejaron su huella en el Gran Teatro Falla.
+    Fotografías, coplas y recuerdos de seis comparsas que conquistaron el primer premio.
   </p>
-</div>
+</section>
 
-<main>
-  <h2 class="section-title">Galería fotográfica</h2>
+<!-- GALERÍA FOTOGRÁFICA: 10 DIAPOSITIVAS -->
 
-  <div class="carousel" aria-label="Carrusel de fotografías de Carnaval">
-    <div class="slide active">
-      <img src="https://static.canalsur.es/clip/e971f803-a49f-404c-a86e-7c9f2e5b94b2_16-9-aspect-ratio_1600w_0.webp">
-      <div class="caption">Las voces del Carnaval</div>
-    </div>
-    <div class="slide">
-      <img src="https://www.portaldecadiz.com/images/igallery/resized/la-boquita-presta-2620/23052022-la-boquita-presta-077-800-600-80.jpg" loading="lazy">
-      <div class="caption">Cádiz, ciudad de coplas</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/2c17c521-046d-4114-9e6a-d23df5093abb_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">Memoria de nuestras agrupaciones</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/12aee06b-028a-4ff3-9173-bdf4f9a954b8_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">La pasión sobre las tablas</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/37c1667d-ec5c-4dd2-ae3e-ec7efbf05598_16-9-aspect-ratio_1200w_0.webp" loading="lazy">
-      <div class="caption">El Carnaval vuelve a la calle</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/8c7a7cc0-61fb-4d5a-ac2d-8cb95732ebd2_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">Historia viva de las coplas</div>
-    </div>
-    <div class="slide">
-      <img src=" https://static.grupojoly.com/clip/eb54439d-15bb-4870-806d-521346655b60_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">Una tradición que nos une</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/6ca3887e-7d65-4897-9471-989aed0efa36_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">El arte popular de Cádiz</div>
-    </div>
-    <div class="slide">
-      <img src="https://static.grupojoly.com/clip/17c87230-c452-4d13-8d93-bea524d13476_16-9-aspect-ratio_1200w_0.webp">
-      <div class="caption">El espíritu gaditano</div>
-    </div>
-    <div class="slide">
-      <img src="https://carnaval.lavozdigital.es/wp-content/uploads/sites/15/2020/02/mejores-comparsas-coac-2020.jpg">
-      <div class="caption">Cádiz celebra su Carnaval</div>
-    </div>
+<section class="carrusel" id="galeria" aria-label="Galería de comparsas">
+  <div class="marco">
 
-    <button class="arrow prev" type="button" aria-label="Fotografía anterior" onclick="mover(-1)">‹</button>
-    <button class="arrow next" type="button" aria-label="Fotografía siguiente" onclick="mover(1)">›</button>
+    <figure class="slide activa">
+      <img src="https://img.youtube.com/vi/PNUthityhWY/hqdefault.jpg"
+           alt="Comparsa ¡Oh capitán, my capitán!" fetchpriority="high">
+      <figcaption>
+        <h2>¡Oh, capitán, my capitán!</h2>
+        <p>COAC 2020 · Tino Tovar</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/KrPhjeJ8L2M/hqdefault.jpg"
+           alt="Comparsa Los Sumisos" loading="lazy">
+      <figcaption>
+        <h2>Los Sumisos</h2>
+        <p>COAC 2022 · Antonio Martínez Ares</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/eEbYwqRyf-k/hqdefault.jpg"
+           alt="Comparsa La ciudad invisible" loading="lazy">
+      <figcaption>
+        <h2>La ciudad invisible</h2>
+        <p>COAC 2023 · Antonio Martínez Ares</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/Lbd5MDCvPZc/hqdefault.jpg"
+           alt="Comparsa La oveja negra" loading="lazy">
+      <figcaption>
+        <h2>La oveja negra</h2>
+        <p>COAC 2024 · Antonio Martínez Ares</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/JiVkk2Vmh8U/hqdefault.jpg"
+           alt="Comparsa Las Ratas" loading="lazy">
+      <figcaption>
+        <h2>Las Ratas</h2>
+        <p>COAC 2025 · Jesús Bienvenido</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/N4m5yIUPH8A/hqdefault.jpg"
+           alt="Comparsa DSAS3" loading="lazy">
+      <figcaption>
+        <h2>DSAS3</h2>
+        <p>COAC 2026 · Jesús Bienvenido</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/7R9i86WYoXk/hqdefault.jpg"
+           alt="Coplas del Carnaval de Cádiz" loading="lazy">
+      <figcaption>
+        <h2>La memoria del Falla</h2>
+        <p>Las coplas que permanecen</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/sKljMRBw9R8/hqdefault.jpg"
+           alt="Pasodoble de comparsa" loading="lazy">
+      <figcaption>
+        <h2>Voces de Cádiz</h2>
+        <p>La emoción del pasodoble</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/J8Q1VtPqF5M/hqdefault.jpg"
+           alt="Copla carnavalesca" loading="lazy">
+      <figcaption>
+        <h2>Coplas para el recuerdo</h2>
+        <p>La fuerza de la comparsa</p>
+      </figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/nw0oGr4Kbvk/hqdefault.jpg"
+           alt="Música del Carnaval de Cádiz" loading="lazy">
+      <figcaption>
+        <h2>El Carnaval sigue cantando</h2>
+        <p>Una tradición que continúa</p>
+      </figcaption>
+    </figure>
+
+    <button class="flecha izquierda" type="button"
+            aria-label="Fotografía anterior" onclick="cambiarSlide(-1)">‹</button>
+    <button class="flecha derecha" type="button"
+            aria-label="Fotografía siguiente" onclick="cambiarSlide(1)">›</button>
   </div>
 
-  <div class="dots" id="dots" aria-label="Elegir fotografía"></div>
+  <div class="puntos" id="puntos" aria-label="Elegir fotografía"></div>
+</section>
 
-  <section class="music">
-    <h2 class="section-title">La música de las Comparsas</h2>
-    <p>
-      Elige el pasodoble que quieras escuchar. Pulsa el botón para
-      abrir la reproducción; los cambios de fotografía no reinician
-      la música.
-    </p>
+<!-- SEIS FICHAS CON SUS CANCIONES -->
 
-<select id="song">
-  <option value="eEbYwqRyf-k">Pasodoble 1</option>
-  <option value="J8Q1VtPqF5M">Pasodoble 2</option>
-  <option value="nw0oGr4Kbvk">Pasodoble 3</option>
-  <option value="7R9i86WYoXk">Pasodoble 4</option>
-  <option value="sKljMRBw9R8">Pasodoble 5</option>
-</select>
+<section class="premios" id="primeros-premios">
+  <h2 class="seccion-titulo">Los primeros premios</h2>
+  <p class="seccion-intro">
+    Seis años, seis agrupaciones y seis canciones para volver a disfrutar de sus coplas.
+  </p>
 
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>¡Oh, capitán, my capitán!</h3>
+      <p class="autor">2020 · Tino Tovar</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2020</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'PNUthityhWY', 0)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/PNUthityhWY/hqdefault.jpg"
+         alt="Imagen de ¡Oh, capitán, my capitán!" loading="lazy">
+  </article>
 
-    
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>Los Sumisos</h3>
+      <p class="autor">2022 · Antonio Martínez Ares</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2022</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'KrPhjeJ8L2M', 32)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/KrPhjeJ8L2M/hqdefault.jpg"
+         alt="Imagen de Los Sumisos" loading="lazy">
+  </article>
 
-    <button class="play" id="playButton" type="button" onclick="reproducir()">
-      ▶ ESCUCHAR PASODOBLE
-    </button>
-    <div id="player" aria-hidden="true"></div>
-    <p style="font-size:12px">La reproducción depende de que el vídeo permita su inserción en esta página.</p>
-  </section>
-</main>
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>La ciudad invisible</h3>
+      <p class="autor">2023 · Antonio Martínez Ares</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2023</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'eEbYwqRyf-k', 0)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/eEbYwqRyf-k/hqdefault.jpg"
+         alt="Imagen de La ciudad invisible" loading="lazy">
+  </article>
+
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>La oveja negra</h3>
+      <p class="autor">2024 · Antonio Martínez Ares</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2024</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'Lbd5MDCvPZc', 0)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/Lbd5MDCvPZc/hqdefault.jpg"
+         alt="Imagen de La oveja negra" loading="lazy">
+  </article>
+
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>Las Ratas</h3>
+      <p class="autor">2025 · Jesús Bienvenido</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2025</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'JiVkk2Vmh8U', 0)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/JiVkk2Vmh8U/hqdefault.jpg"
+         alt="Imagen de Las Ratas" loading="lazy">
+  </article>
+
+  <article class="ficha">
+    <div class="ficha-texto">
+      <h3>DSAS3</h3>
+      <p class="autor">2026 · Jesús Bienvenido</p>
+      <span class="distintivo">PRIMER PREMIO · COAC 2026</span><br>
+      <button class="escuchar" type="button"
+              onclick="escuchar(this, 'N4m5yIUPH8A', 0)">
+        ▶ Escuchar canción
+      </button>
+    </div>
+    <img class="foto-ficha"
+         src="https://img.youtube.com/vi/N4m5yIUPH8A/hqdefault.jpg"
+         alt="Imagen de DSAS3" loading="lazy">
+  </article>
+
+  <p class="nota-musica">
+    Pulsa el botón de cada ficha para escuchar su canción.
+    El reproductor permanece oculto para conservar la estética del museo.
+  </p>
+  <p id="estado-musica" aria-live="polite"></p>
+</section>
+
+<div class="volver-contenedor">
+  <a class="volver" href="index.html">← Volver a la portada del museo</a>
+</div>
 
 <footer>
-  Museo Fotográfico del Carnaval de Cádiz · Sala de Comparsas
-  <br><br>
-  <a class="back" href="index.html">← VOLVER A LA PORTADA</a>
+  Museo Fotográfico del Carnaval de Cádiz<br>
+  Comparsas · Coplas · Historia · Emoción
 </footer>
 
-<script>
-const slides = Array.from(document.querySelectorAll('.slide'));
-const dotsBox = document.getElementById('dots');
-let actual = 0;
-let reloj;
+<div id="player" aria-hidden="true"></div>
 
-slides.forEach((slide, i) => {
-  const dot = document.createElement('button');
-  dot.type = 'button';
-  dot.className = 'dot' + (i === 0 ? ' active' : '');
-  dot.setAttribute('aria-label', 'Ver fotografía ' + (i + 1));
-  dot.addEventListener('click', () => mostrar(i));
-  dotsBox.appendChild(dot);
+<script>
+/* CARRUSEL AUTOMÁTICO */
+
+const slides = Array.from(document.querySelectorAll(".slide"));
+const puntosContenedor = document.getElementById("puntos");
+let indiceActual = 0;
+let relojCarrusel;
+
+slides.forEach((slide, indice) => {
+  const punto = document.createElement("button");
+  punto.type = "button";
+  punto.className = "punto" + (indice === 0 ? " activo" : "");
+  punto.setAttribute("aria-label", "Ver fotografía " + (indice + 1));
+  punto.addEventListener("click", () => mostrarSlide(indice));
+  puntosContenedor.appendChild(punto);
 });
 
-const dots = Array.from(dotsBox.children);
+const puntos = Array.from(document.querySelectorAll(".punto"));
 
-function mostrar(n) {
-  actual = (n + slides.length) % slides.length;
-  slides.forEach((slide, i) => slide.classList.toggle('active', i === actual));
-  dots.forEach((dot, i) => dot.classList.toggle('active', i === actual));
-}
-function mover(n) {
-  mostrar(actual + n);
-  reiniciarReloj();
-}
-function reiniciarReloj() {
-  clearInterval(reloj);
-  reloj = setInterval(() => mostrar(actual + 1), 5500);
-}
-reiniciarReloj();
+function mostrarSlide(indice) {
+  slides[indiceActual].classList.remove("activa");
+  puntos[indiceActual].classList.remove("activo");
 
-let reproductor;
-let APIlista = false;
-let pendiente = false;
+  indiceActual = (indice + slides.length) % slides.length;
 
-function cargarYouTube() {
-  if (APIlista) return;
-  APIlista = true;
-  const s = document.createElement('script');
-  s.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(s);
+  slides[indiceActual].classList.add("activa");
+  puntos[indiceActual].classList.add("activo");
+
+  reiniciarCarrusel();
 }
-window.onYouTubeIframeAPIReady = function() {
-  reproductor = new YT.Player('player', {
-    width: '1',
-    height: '1',
-    videoId: document.getElementById('song').value,
-    playerVars: {playsinline: 1, rel: 0},
+
+function cambiarSlide(direccion) {
+  mostrarSlide(indiceActual + direccion);
+}
+
+function reiniciarCarrusel() {
+  clearInterval(relojCarrusel);
+  relojCarrusel = setInterval(() => {
+    mostrarSlide(indiceActual + 1);
+  }, 5500);
+}
+
+reiniciarCarrusel();
+
+/* REPRODUCTOR MUSICAL OCULTO DE YOUTUBE */
+
+let reproductor = null;
+let videoPendiente = null;
+let botonActivo = null;
+
+function escuchar(boton, videoId, segundoInicial) {
+  videoPendiente = {
+    videoId: videoId,
+    startSeconds: segundoInicial
+  };
+
+  if (botonActivo && botonActivo !== boton) {
+    botonActivo.classList.remove("reproduciendo");
+    botonActivo.textContent = "▶ Escuchar canción";
+  }
+
+  botonActivo = boton;
+  boton.classList.add("reproduciendo");
+  boton.textContent = "♫ Reproduciendo";
+  document.getElementById("estado-musica").textContent =
+    "Preparando la reproducción…";
+
+  if (reproductor && typeof reproductor.loadVideoById === "function") {
+    reproductor.loadVideoById(videoPendiente);
+  }
+}
+
+function onYouTubeIframeAPIReady() {
+  reproductor = new YT.Player("player", {
+    height: "1",
+    width: "1",
+    videoId: "PNUthityhWY",
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      playsinline: 1,
+      rel: 0
+    },
     events: {
-      onReady: function() {
-        if (pendiente) {
-          reproductor.loadVideoById(document.getElementById('song').value);
-          pendiente = false;
+      onReady: function(evento) {
+        if (videoPendiente) {
+          evento.target.loadVideoById(videoPendiente);
         }
       },
-      onStateChange: function(e) {
-        document.getElementById('playButton').textContent =
-          e.data === YT.PlayerState.PLAYING
-          ? '❚❚ PAUSAR PASODOBLE'
-          : '▶ ESCUCHAR PASODOBLE';
+      onStateChange: function(evento) {
+        const estado = document.getElementById("estado-musica");
+
+        if (evento.data === YT.PlayerState.PLAYING) {
+          estado.textContent = "La canción está sonando.";
+          if (botonActivo) {
+            botonActivo.textContent = "♫ Reproduciendo";
+          }
+        }
+
+        if (evento.data === YT.PlayerState.ENDED) {
+          estado.textContent = "La canción ha terminado.";
+          if (botonActivo) {
+            botonActivo.classList.remove("reproduciendo");
+            botonActivo.textContent = "▶ Escuchar canción";
+          }
+        }
+
+        if (evento.data === YT.PlayerState.PAUSED) {
+          estado.textContent = "Reproducción pausada.";
+        }
+      },
+      onError: function() {
+        document.getElementById("estado-musica").textContent =
+          "No se ha podido reproducir este vídeo. Puedes abrirlo en YouTube.";
       }
     }
   });
-};
-function reproducir() {
-  cargarYouTube();
-  const id = document.getElementById('song').value;
-  if (!reproductor || !reproductor.loadVideoById) {
-    pendiente = true;
-    return;
-  }
-  if (reproductor.getVideoData().video_id !== id) {
-    reproductor.loadVideoById(id);
-  } else if (reproductor.getPlayerState() === YT.PlayerState.PLAYING) {
-    reproductor.pauseVideo();
-  } else {
-    reproductor.playVideo();
-  }
 }
-document.getElementById('song').addEventListener('change', function() {
-  if (reproductor && reproductor.loadVideoById) {
-    reproductor.loadVideoById(this.value);
-  }
-});
+
+const apiYouTube = document.createElement("script");
+apiYouTube.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(apiYouTube);
 </script>
+
 </body>
 </html>
 
