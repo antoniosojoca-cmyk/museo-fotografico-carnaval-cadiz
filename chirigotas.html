@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chirigotas | Museo Fotográfico del Carnaval de Cádiz</title>
+
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;background:#050505;color:#eee;font-family:Georgia,"Times New Roman",serif}
@@ -34,6 +35,7 @@ select,button{font-family:Georgia,"Times New Roman",serif}
 select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;background:#111;color:#e1c681;border:1px solid #8c713d;font-size:15px}
 .play{background:#d4b574;color:#090909;border:0;padding:13px 23px;cursor:pointer;font-size:14px}
 .play:hover{background:#f0d79b}
+.stop{background:#101010;color:#d4b574;border:1px solid #8c713d;padding:12px 18px;cursor:pointer;margin:8px}
 #player{position:absolute;width:1px;height:1px;left:-10000px;overflow:hidden}
 .prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px}
 .prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
@@ -47,6 +49,7 @@ select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;ba
 .prize button{color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;cursor:pointer}
 .prize button:hover{background:#d4b574;color:#080808}
 .note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
+#musicStatus{font-size:12px;color:#d4b574;margin-top:12px}
 footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
 @keyframes fade{from{opacity:.35}to{opacity:1}}
 @media(max-width:850px){
@@ -62,6 +65,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 }
 </style>
 </head>
+
 <body>
 <header>
   <a class="back" href="index.html">← VOLVER AL MUSEO</a>
@@ -78,129 +82,162 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 <main class="layout">
 <section class="gallery">
   <h2 class="section-title">Galería fotográfica</h2>
+
   <div class="carousel" aria-label="Carrusel de fotografías de chirigotas">
 
     <figure class="slide active">
-      <img src="https://static.grupojoly.com/clip/113d1567-9261-4538-aa41-9f80d2052daf_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/113d1567-9261-4538-aa41-9f80d2052daf_16-9-aspect-ratio_1200w_0.webp" alt="La capa negra">
       <figcaption class="caption">La capa negra · COAC 2020</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/efb9c1a0-2993-4b42-bd41-68a32e7560f5_16-9-aspect-ratio_1200w_0.webp">
-      <figcaption class="caption">Si me pongo pesao ·me lo dice</figcaption>
+      <img src="https://static.grupojoly.com/clip/efb9c1a0-2993-4b42-bd41-68a32e7560f5_16-9-aspect-ratio_1200w_0.webp" alt="Si me pongo pesao">
+      <figcaption class="caption">Si me pongo pesao · me lo dice</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/4188db4a-3f48-4f3a-b5f0-4dd37d0a9099_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/4188db4a-3f48-4f3a-b5f0-4dd37d0a9099_16-9-aspect-ratio_1200w_0.webp" alt="Los abuelos">
       <figcaption class="caption">Los abuelos · COAC 2025</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/398d3c24-d2db-4423-99cc-c802e524298d_16-9-aspect-ratio_1200w_0.webp">
-      <figcaption class="caption">El love · COAC 2026</figcaption>
+      <img src="https://static.grupojoly.com/clip/398d3c24-d2db-4423-99cc-c802e524298d_16-9-aspect-ratio_1200w_0.webp" alt="El Love">
+      <figcaption class="caption">El Love · COAC 2026</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.canalsur.es/clip/c8fb0cd9-0a0b-4205-9a08-e3187bb1e5ed_source-aspect-ratio_1600w_0.jpg">
-      <figcaption class="caption">Adios a la chirigota del Love</figcaption>
+      <img src="https://static.canalsur.es/clip/c8fb0cd9-0a0b-4205-9a08-e3187bb1e5ed_source-aspect-ratio_1600w_0.jpg" alt="La chirigota del Love">
+      <figcaption class="caption">Adiós a la chirigota del Love</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/f432b4fa-f072-493f-a4bb-2672ee886362_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/f432b4fa-f072-493f-a4bb-2672ee886362_16-9-aspect-ratio_1200w_0.webp" alt="Viva la Pepi">
       <figcaption class="caption">Viva la Pepi</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src=" https://static.grupojoly.com/clip/4bce16c2-1d08-4508-92da-44ddd5e1fd04_16-9-aspect-ratio_1200w_0.webp">
-      <figcaption class="caption">Los que van coger papas</figcaption>
+      <img src="https://static.grupojoly.com/clip/4bce16c2-1d08-4508-92da-44ddd5e1fd04_16-9-aspect-ratio_1200w_0.webp" alt="Los que van a coger papas">
+      <figcaption class="caption">Los que van a coger papas</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/31a70c7c-7a14-486c-a8c9-e2198ce4ba75_source-aspect-ratio_1600w_0.webp">
-      <figcaption class="caption">Lo que van por derecho</figcaption>
+      <img src="https://static.grupojoly.com/clip/31a70c7c-7a14-486c-a8c9-e2198ce4ba75_source-aspect-ratio_1600w_0.webp" alt="Los que van por derecho">
+      <figcaption class="caption">Los que van por derecho</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://carnaval.lavozdigital.es/wp-content/uploads/sites/15/2017/11/canijo.jpeg">
-      <figcaption class="caption">!Que calo¡</figcaption>
+      <img src="https://carnaval.lavozdigital.es/wp-content/uploads/sites/15/2017/11/canijo.jpeg" alt="Qué caló">
+      <figcaption class="caption">¡Qué caló!</figcaption>
     </figure>
+
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/ebbd76e1-5cc2-442f-a5d7-40ca1dd1479f_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/ebbd76e1-5cc2-442f-a5d7-40ca1dd1479f_16-9-aspect-ratio_1200w_0.webp" alt="Los muchachos del congelao">
       <figcaption class="caption">Los muchachos del congelao</figcaption>
     </figure>
 
     <button class="arrow prev" type="button" aria-label="Fotografía anterior" onclick="mover(-1)">‹</button>
     <button class="arrow next" type="button" aria-label="Fotografía siguiente" onclick="mover(1)">›</button>
   </div>
+
   <div class="dots" id="dots" aria-label="Elegir fotografía"></div>
 
   <section class="music">
     <h2 class="section-title">Coplas y pasodobles</h2>
-    <p>Elige una copla de la chirigota «Los Calaíta» y escucha el fragmento.
+    <p>Elige uno de los cinco pasodobles y pulsa el botón para escucharlo.
     Puedes cambiar de fotografía mientras suena la música.</p>
+
     <label for="song">Selecciona un pasodoble:</label>
-  
-   
-<select id="song">
-  <option value="QkEdz2bl93U|0">Pasodoble 1</option>
-  <option value="yAJ4mgg2m0Q|0">Pasodoble 2</option>
-  <option value="ud2rfGUpXKg|0">Pasodoble 3</option>
-  <option value="ud2rfGUpXKg|0">Pasodoble 4</option>
-  <option value="r2xGm4llsFE|0">Pasodoble 5</option>
-</select>
+
+    <select id="song">
+      <option value="QkEdz2bl93U|0">Pasodoble 1</option>
+      <option value="yAJ4mgg2m0Q|0">Pasodoble 2</option>
+      <option value="ud2rfGUpXKg|0">Pasodoble 3</option>
+      <option value="ud2rfGUpXKg|0">Pasodoble 4 (mismo enlace que el 3)</option>
+      <option value="r2xGm4llsFE|0">Pasodoble 5</option>
+    </select>
 
     <button class="play" id="playButton" type="button" onclick="reproducir()">▶ ESCUCHAR PASODOBLE</button>
+    <button class="stop" type="button" onclick="detenerMusica()">■ DETENER</button>
+
+    <p id="musicStatus">La reproducción comienza al pulsar el botón.</p>
     <div id="player" aria-hidden="true"></div>
-    <p style="font-size:12px">La reproducción se inicia al pulsar el botón.</p>
   </section>
 </section>
 
 <aside class="prizes">
   <h2>Primeros premios</h2>
+
   <div class="prizes-grid">
 
     <article class="prize">
       <img src="https://img.youtube.com/vi/heLabwM3rvE/mqdefault.jpg" alt="Los Cádizfornia">
-      <div><div class="year">2020</div><h3>Los Cádizfornia</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>José Antonio Vera Luque</small>
-      <button onclick="reproducirPremio('heLabwM3rvE',0)">▶ Escuchar actuación</button></div>
+      <div>
+        <div class="year">2020</div>
+        <h3>Los Cádizfornia</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>José Antonio Vera Luque</small>
+        <button onclick="reproducirPremio('heLabwM3rvE',0)">▶ Escuchar actuación</button>
+      </div>
     </article>
 
     <article class="prize">
       <img src="https://img.youtube.com/vi/i6dghgY_oR4/mqdefault.jpg" alt="La misión">
-      <div><div class="year">2022</div><h3>La misión</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>El evangelio según Santander</small>
-      <button onclick="reproducirPremio('i6dghgY_oR4',0)">▶ Escuchar actuación</button></div>
+      <div>
+        <div class="year">2022</div>
+        <h3>La misión</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>El evangelio según Santander</small>
+        <button onclick="reproducirPremio('i6dghgY_oR4',0)">▶ Escuchar actuación</button>
+      </div>
     </article>
 
     <article class="prize">
-      <img src="https://static.grupojoly.com/clip/569d6ecf-1137-4717-8132-b09d8fba27b3_16-9-aspect-ratio_1200w_0.webp">
-      <div><div class="year">2023</div><h3>Amo escuchá</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>Chirigota callejera</small>
-      <button onclick="window.open('https://www.youtube.com/results?search_query=Amo+escucha+chirigota+callejera+2023+C%C3%A1diz','_blank','noopener')">▶ Buscar actuación</button></div>
+      <img src="https://static.grupojoly.com/clip/569d6ecf-1137-4717-8132-b09d8fba27b3_16-9-aspect-ratio_1200w_0.webp" alt="Amo escuchá">
+      <div>
+        <div class="year">2023</div>
+        <h3>Amo escuchá</h3>
+        <span class="tag">CHIRIGOTA CALLEJERA</span>
+        <small>Una chirigota para disfrutar del Carnaval en la calle.</small>
+        <button onclick="reproducirPremio('A6rkC8BvLig',11)">▶ Escuchar Amo escuchá</button>
+      </div>
     </article>
 
     <article class="prize">
-      <img src="https://static.grupojoly.com/clip/9f21b44c-678d-4909-8c8e-008c2b62e395_16-9-aspect-ratio_1200w_0.webp">
-      <div><div class="year">2024</div><h3>Los exageraos</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>Te he dicho 1.748.654 veces que no soy exagerao</small>
-      <button onclick="window.open('https://www.youtube.com/results?search_query=Los+exageraos+COAC+2024+chirigota+final','_blank','noopener')">▶ Buscar actuación</button></div>
+      <img src="https://static.grupojoly.com/clip/9f21b44c-678d-4909-8c8e-008c2b62e395_16-9-aspect-ratio_1200w_0.webp" alt="Los exageraos">
+      <div>
+        <div class="year">2024</div>
+        <h3>Los exageraos</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>Te he dicho 1.748.654 veces que no soy exagerao</small>
+        <button onclick="reproducirPremio('jOYnYeVBBAY',0)">▶ Escuchar Los exageraos</button>
+      </div>
     </article>
 
     <article class="prize">
       <img src="https://img.youtube.com/vi/oYLEPKHvRGo/mqdefault.jpg" alt="Los Calaíta">
-      <div><div class="year">2025</div><h3>Los Calaíta</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>Fuimos a por tabaco</small>
-      <button onclick="reproducirPremio('oYLEPKHvRGo',0)">▶ Escuchar actuación</button></div>
+      <div>
+        <div class="year">2025</div>
+        <h3>Los Calaíta</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>Fuimos a por tabaco</small>
+        <button onclick="reproducirPremio('oYLEPKHvRGo',0)">▶ Escuchar actuación</button>
+      </div>
     </article>
 
     <article class="prize">
-      <img src="https://img.youtube.com/vi/wlZYMd5_mfU/mqdefault.jpg" alt="Ssshhhhh">
-      <div><div class="year">2026</div><h3>Ssshhhhh!!!</h3>
-      <span class="tag">PRIMER PREMIO</span>
-      <small>La chirigota del Bizcocho</small>
-      <button onclick="reproducirPremio('wlZYMd5_mfU',0)">▶ Escuchar actuación</button></div>
+      <img src="https://img.youtube.com/vi/wlZYMd5_mfU/mqdefault.jpg" alt="Ssshhhhh!!!">
+      <div>
+        <div class="year">2026</div>
+        <h3>Ssshhhhh!!!</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>La chirigota del Bizcocho</small>
+        <button onclick="reproducirPremio('wlZYMd5_mfU',0)">▶ Escuchar actuación</button>
+      </div>
     </article>
 
   </div>
-  <p class="note">Las actuaciones se reproducen por separado para no mezclar las coplas.</p>
+
+  <p class="note">Cada actuación se reproduce por separado para no mezclar las coplas.</p>
 </aside>
 </main>
 
@@ -223,6 +260,7 @@ slides.forEach((slide,i)=>{
   dot.onclick=()=>{mostrar(i);reiniciarReloj()};
   dotsBox.appendChild(dot);
 });
+
 const dots=Array.from(dotsBox.children);
 
 function mostrar(n){
@@ -230,14 +268,20 @@ function mostrar(n){
   slides.forEach((s,i)=>s.classList.toggle('active',i===actual));
   dots.forEach((d,i)=>d.classList.toggle('active',i===actual));
 }
-function mover(n){mostrar(actual+n);reiniciarReloj()}
+
+function mover(n){
+  mostrar(actual+n);
+  reiniciarReloj();
+}
+
 function reiniciarReloj(){
   clearInterval(reloj);
   reloj=setInterval(()=>mostrar(actual+1),5500);
 }
+
 reiniciarReloj();
 
-let reproductor;
+let reproductor=null;
 let apiSolicitada=false;
 let pendiente=null;
 
@@ -248,47 +292,79 @@ function cargarYouTube(){
   s.src='https://www.youtube.com/iframe_api';
   document.head.appendChild(s);
 }
+
 window.onYouTubeIframeAPIReady=function(){
   reproductor=new YT.Player('player',{
-    width:'1',height:'1',
+    width:'200',
+    height:'200',
     videoId:'oYLEPKHvRGo',
-    playerVars:{playsinline:1,rel:0},
+    playerVars:{
+      playsinline:1,
+      rel:0
+    },
     events:{
       onReady:function(){
         if(pendiente){
-          reproductor.loadVideoById({
-            videoId:pendiente.id,
-            startSeconds:pendiente.segundo||0
-          });
+          const p=pendiente;
           pendiente=null;
+          reproductor.loadVideoById({
+            videoId:p.id,
+            startSeconds:p.segundo||0
+          });
         }
       },
       onStateChange:function(e){
-        document.getElementById('playButton').textContent=
-          e.data===YT.PlayerState.PLAYING
-          ?'❚❚ PAUSAR PASODOBLE':'▶ ESCUCHAR PASODOBLE';
+        const boton=document.getElementById('playButton');
+        if(e.data===YT.PlayerState.PLAYING){
+          boton.textContent='❚❚ PAUSAR PASODOBLE';
+          document.getElementById('musicStatus').textContent='Reproduciendo música.';
+        }else if(e.data===YT.PlayerState.PAUSED){
+          boton.textContent='▶ CONTINUAR PASODOBLE';
+          document.getElementById('musicStatus').textContent='Música en pausa.';
+        }else if(e.data===YT.PlayerState.ENDED){
+          boton.textContent='▶ ESCUCHAR PASODOBLE';
+          document.getElementById('musicStatus').textContent='La reproducción ha terminado.';
+        }
       }
     }
   });
 };
+
 function reproducirPremio(id,segundo){
   cargarYouTube();
+  document.getElementById('musicStatus').textContent='Preparando la actuación…';
+
   if(!reproductor||!reproductor.loadVideoById){
     pendiente={id:id,segundo:segundo||0};
     return;
   }
-  reproductor.loadVideoById({videoId:id,startSeconds:segundo||0});
+
+  reproductor.loadVideoById({
+    videoId:id,
+    startSeconds:segundo||0
+  });
 }
+
 function reproducir(){
   cargarYouTube();
+
   const partes=document.getElementById('song').value.split('|');
-  const id=partes[0],segundo=Number(partes[1])||0;
+  const id=partes[0];
+  const segundo=Number(partes[1])||0;
+
   if(!reproductor||!reproductor.loadVideoById){
     pendiente={id:id,segundo:segundo};
+    document.getElementById('musicStatus').textContent='Preparando el reproductor…';
     return;
   }
-  if(reproductor.getVideoData().video_id!==id){
-    reproductor.loadVideoById({videoId:id,startSeconds:segundo});
+
+  const videoActual=reproductor.getVideoData().video_id;
+
+  if(videoActual!==id){
+    reproductor.loadVideoById({
+      videoId:id,
+      startSeconds:segundo
+    });
   }else if(reproductor.getPlayerState()===YT.PlayerState.PLAYING){
     reproductor.pauseVideo();
   }else{
@@ -296,6 +372,18 @@ function reproducir(){
     reproductor.playVideo();
   }
 }
+
+function detenerMusica(){
+  if(reproductor&&reproductor.stopVideo){
+    reproductor.stopVideo();
+  }
+  pendiente=null;
+  document.getElementById('playButton').textContent='▶ ESCUCHAR PASODOBLE';
+  document.getElementById('musicStatus').textContent='Música detenida.';
+}
 </script>
+
 </body>
 </html>
+
+
