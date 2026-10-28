@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chirigotas | Museo Fotográfico del Carnaval de Cádiz</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#050505;color:#eee;font-family:Georgia,"Times New Roman",serif}
+header{text-align:center;padding:30px 15px 22px;background:linear-gradient(#17130c,#050505)}
+header h1{color:#d4b574;font-size:clamp(32px,5vw,52px);font-weight:normal;margin:14px 0}
+header p{color:#c9c0ae;letter-spacing:2px;font-size:12px}
+.back{display:inline-block;color:#d4b574;text-decoration:none;border:1px solid #8c713d;padding:10px 18px;margin:8px 0;letter-spacing:1px;font-size:13px}
+.back:hover{background:#d4b574;color:#080808}
+.intro{max-width:850px;margin:auto;padding:12px 22px 25px;text-align:center;line-height:1.8;color:#d0c8ba}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:22px;max-width:1450px;margin:auto;padding:0 18px;align-items:start}
+.gallery{min-width:0}
+h2.section-title{text-align:center;color:#d4b574;font-size:25px;font-weight:normal;margin:15px 10px}
+.carousel{position:relative;background:#000}
+.slide{display:none;text-align:center}
+.slide.active{display:block;animation:fade .7s}
+.slide img{display:block;width:100%;height:min(62vw,680px);min-height:300px;object-fit:contain;background:#000}
+.caption{color:#d4b574;padding:13px 10px 20px;font-size:17px;letter-spacing:.5px}
+.arrow{position:absolute;top:43%;transform:translateY(-50%);width:46px;height:46px;border:1px solid #8c713d;border-radius:50%;background:#090909c9;color:#e0c27f;font-size:29px;cursor:pointer}
+.arrow:hover{background:#d4b574;color:#050505}
+.prev{left:14px}.next{right:14px}
+.dots{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px 10px 25px}
+.dot{width:11px;height:11px;border-radius:50%;border:1px solid #d4b574;background:#171717;padding:0;cursor:pointer}
+.dot.active{background:#d4b574}
+.music{margin:12px auto 40px;padding:20px 15px;text-align:center;border-top:1px solid #4e4027}
+.music p{color:#c9c0ae;line-height:1.7}
+select,button{font-family:Georgia,"Times New Roman",serif}
+select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;background:#111;color:#e1c681;border:1px solid #8c713d;font-size:15px}
+.play{background:#d4b574;color:#090909;border:0;padding:13px 23px;cursor:pointer;font-size:14px}
+.play:hover{background:#f0d79b}
+#player{position:absolute;width:1px;height:1px;left:-10000px;overflow:hidden}
+.prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px}
+.prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
+.prizes-grid{display:block}
+.prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #302719}
+.prize img{width:76px;height:92px;object-fit:cover;background:#111;border:1px solid #554326}
+.year{color:#d4b574;font-size:12px;margin-bottom:4px}
+.prize h3{color:#e6d4aa;font-size:14px;font-weight:normal;line-height:1.35;margin:0 0 6px}
+.tag{display:inline-block;color:#090909;background:#d4b574;font-size:9px;letter-spacing:.5px;padding:4px 5px;margin-bottom:7px}
+.prize small{display:block;color:#c9c0ae;font-size:11px;line-height:1.5;margin-bottom:8px}
+.prize button{color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;cursor:pointer}
+.prize button:hover{background:#d4b574;color:#080808}
+.note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
+footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
+@keyframes fade{from{opacity:.35}to{opacity:1}}
+@media(max-width:850px){
+ .layout{grid-template-columns:minmax(0,1fr);padding:0 10px}
+ .prizes{border-left:0;border-top:1px solid #4e4027;padding:20px 0;margin-top:5px}
+ .prizes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+}
+@media(max-width:480px){
+ .prizes-grid{grid-template-columns:1fr}
+ .slide img{height:65vh;min-height:260px}
+ .arrow{width:39px;height:39px;font-size:24px}
+ .prev{left:7px}.next{right:7px}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="index.html">← VOLVER AL MUSEO</a>
+  <h1>La sala de las Chirigotas</h1>
+  <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
+</header>
+
+<div class="intro">
+  <p>El ingenio, la ironía y la risa que se convierten en copla.
+  Un homenaje a las chirigotas que han llenado el Gran Teatro Falla
+  y las calles de Cádiz de humor, crítica y memoria popular.</p>
+</div>
+
+<main class="layout">
+<section class="gallery">
+  <h2 class="section-title">Galería fotográfica</h2>
+  <div class="carousel" aria-label="Carrusel de fotografías de chirigotas">
+
+    <figure class="slide active">
+      <img src="https://img.youtube.com/vi/heLabwM3rvE/hqdefault.jpg" alt="Los Cádizfornia, chirigota COAC 2020">
+      <figcaption class="caption">Los Cádizfornia · COAC 2020</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/i6dghgY_oR4/hqdefault.jpg" alt="La misión, chirigota COAC 2022" loading="lazy">
+      <figcaption class="caption">La misión · El evangelio según Santander</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/oYLEPKHvRGo/hqdefault.jpg" alt="Los Calaíta, chirigota COAC 2025" loading="lazy">
+      <figcaption class="caption">Los Calaíta · COAC 2025</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://img.youtube.com/vi/wlZYMd5_mfU/hqdefault.jpg" alt="Ssshhhhh, chirigota COAC 2026" loading="lazy">
+      <figcaption class="caption">Ssshhhhh!!! · COAC 2026</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnaval%20de%20C%C3%A1diz.jpg" alt="Ambiente del Carnaval de Cádiz" loading="lazy">
+      <figcaption class="caption">Cádiz, escenario de coplas</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnaval%20de%20C%C3%A1diz%20chirigota.jpg" alt="Agrupación carnavalesca" loading="lazy">
+      <figcaption class="caption">El arte de hacer reír</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A1diz%20Carnaval%20Chirigota.jpg" alt="Chirigota del Carnaval gaditano" loading="lazy">
+      <figcaption class="caption">La chirigota sobre las tablas</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnavales%20Cadiz%202022.jpg" alt="Carnaval de Cádiz" loading="lazy">
+      <figcaption class="caption">La fiesta y la tradición</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnavaldecadiz.jpg" alt="Escena del Carnaval de Cádiz" loading="lazy">
+      <figcaption class="caption">El humor que nos representa</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cabalgata%20Carnaval%20de%20C%C3%A1diz.jpg" alt="Celebración del Carnaval de Cádiz" loading="lazy">
+      <figcaption class="caption">Cádiz celebra su Carnaval</figcaption>
+    </figure>
+
+    <button class="arrow prev" type="button" aria-label="Fotografía anterior" onclick="mover(-1)">‹</button>
+    <button class="arrow next" type="button" aria-label="Fotografía siguiente" onclick="mover(1)">›</button>
+  </div>
+  <div class="dots" id="dots" aria-label="Elegir fotografía"></div>
+
+  <section class="music">
+    <h2 class="section-title">Coplas y pasodobles</h2>
+    <p>Elige una copla de la chirigota «Los Calaíta» y escucha el fragmento.
+    Puedes cambiar de fotografía mientras suena la música.</p>
+    <label for="song">Selecciona un pasodoble:</label>
+    <select id="song">
+      <option value="oYLEPKHvRGo|250">Pasodoble 1 · Preliminares</option>
+      <option value="oYLEPKHvRGo|410">Pasodoble 2 · Preliminares</option>
+      <option value="oYLEPKHvRGo|807">Pasodoble 3 · Cuartos</option>
+      <option value="oYLEPKHvRGo|969">Pasodoble 4 · Cuartos</option>
+      <option value="oYLEPKHvRGo|1376">Pasodoble 5 · Semifinales</option>
+    </select>
+    <button class="play" id="playButton" type="button" onclick="reproducir()">▶ ESCUCHAR PASODOBLE</button>
+    <div id="player" aria-hidden="true"></div>
+    <p style="font-size:12px">La reproducción se inicia al pulsar el botón.</p>
+  </section>
+</section>
+
+<aside class="prizes">
+  <h2>Primeros premios</h2>
+  <div class="prizes-grid">
+
+    <article class="prize">
+      <img src="https://img.youtube.com/vi/heLabwM3rvE/mqdefault.jpg" alt="Los Cádizfornia">
+      <div><div class="year">2020</div><h3>Los Cádizfornia</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>José Antonio Vera Luque</small>
+      <button onclick="reproducirPremio('heLabwM3rvE',0)">▶ Escuchar actuación</button></div>
+    </article>
+
+    <article class="prize">
+      <img src="https://img.youtube.com/vi/i6dghgY_oR4/mqdefault.jpg" alt="La misión">
+      <div><div class="year">2022</div><h3>La misión</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>El evangelio según Santander</small>
+      <button onclick="reproducirPremio('i6dghgY_oR4',0)">▶ Escuchar actuación</button></div>
+    </article>
+
+    <article class="prize">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carnaval%20de%20C%C3%A1diz.jpg" alt="Amo escuchá">
+      <div><div class="year">2023</div><h3>Amo escuchá</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>Chirigota callejera</small>
+      <button onclick="window.open('https://www.youtube.com/results?search_query=Amo+escucha+chirigota+callejera+2023+C%C3%A1diz','_blank','noopener')">▶ Buscar actuación</button></div>
+    </article>
+
+    <article class="prize">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/C%C3%A1diz%20Carnaval%20Chirigota.jpg" alt="Los exageraos">
+      <div><div class="year">2024</div><h3>Los exageraos</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>Te he dicho 1.748.654 veces que no soy exagerao</small>
+      <button onclick="window.open('https://www.youtube.com/results?search_query=Los+exageraos+COAC+2024+chirigota+final','_blank','noopener')">▶ Buscar actuación</button></div>
+    </article>
+
+    <article class="prize">
+      <img src="https://img.youtube.com/vi/oYLEPKHvRGo/mqdefault.jpg" alt="Los Calaíta">
+      <div><div class="year">2025</div><h3>Los Calaíta</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>Fuimos a por tabaco</small>
+      <button onclick="reproducirPremio('oYLEPKHvRGo',0)">▶ Escuchar actuación</button></div>
+    </article>
+
+    <article class="prize">
+      <img src="https://img.youtube.com/vi/wlZYMd5_mfU/mqdefault.jpg" alt="Ssshhhhh">
+      <div><div class="year">2026</div><h3>Ssshhhhh!!!</h3>
+      <span class="tag">PRIMER PREMIO</span>
+      <small>La chirigota del Bizcocho</small>
+      <button onclick="reproducirPremio('wlZYMd5_mfU',0)">▶ Escuchar actuación</button></div>
+    </article>
+
+  </div>
+  <p class="note">Las actuaciones se reproducen por separado para no mezclar las coplas.</p>
+</aside>
+</main>
+
+<footer>
+  Museo Fotográfico del Carnaval de Cádiz · Sala de Chirigotas
+  <br><br>
+  <a class="back" href="index.html">← VOLVER A LA PORTADA</a>
+</footer>
+
+<script>
+const slides=Array.from(document.querySelectorAll('.slide'));
+const dotsBox=document.getElementById('dots');
+let actual=0,reloj;
+
+slides.forEach((slide,i)=>{
+  const dot=document.createElement('button');
+  dot.type='button';
+  dot.className='dot'+(i===0?' active':'');
+  dot.setAttribute('aria-label','Ver fotografía '+(i+1));
+  dot.onclick=()=>{mostrar(i);reiniciarReloj()};
+  dotsBox.appendChild(dot);
+});
+const dots=Array.from(dotsBox.children);
+
+function mostrar(n){
+  actual=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===actual));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===actual));
+}
+function mover(n){mostrar(actual+n);reiniciarReloj()}
+function reiniciarReloj(){
+  clearInterval(reloj);
+  reloj=setInterval(()=>mostrar(actual+1),5500);
+}
+reiniciarReloj();
+
+let reproductor;
+let apiSolicitada=false;
+let pendiente=null;
+
+function cargarYouTube(){
+  if(apiSolicitada)return;
+  apiSolicitada=true;
+  const s=document.createElement('script');
+  s.src='https://www.youtube.com/iframe_api';
+  document.head.appendChild(s);
+}
+window.onYouTubeIframeAPIReady=function(){
+  reproductor=new YT.Player('player',{
+    width:'1',height:'1',
+    videoId:'oYLEPKHvRGo',
+    playerVars:{playsinline:1,rel:0},
+    events:{
+      onReady:function(){
+        if(pendiente){
+          reproductor.loadVideoById({
+            videoId:pendiente.id,
+            startSeconds:pendiente.segundo||0
+          });
+          pendiente=null;
+        }
+      },
+      onStateChange:function(e){
+        document.getElementById('playButton').textContent=
+          e.data===YT.PlayerState.PLAYING
+          ?'❚❚ PAUSAR PASODOBLE':'▶ ESCUCHAR PASODOBLE';
+      }
+    }
+  });
+};
+function reproducirPremio(id,segundo){
+  cargarYouTube();
+  if(!reproductor||!reproductor.loadVideoById){
+    pendiente={id:id,segundo:segundo||0};
+    return;
+  }
+  reproductor.loadVideoById({videoId:id,startSeconds:segundo||0});
+}
+function reproducir(){
+  cargarYouTube();
+  const partes=document.getElementById('song').value.split('|');
+  const id=partes[0],segundo=Number(partes[1])||0;
+  if(!reproductor||!reproductor.loadVideoById){
+    pendiente={id:id,segundo:segundo};
+    return;
+  }
+  if(reproductor.getVideoData().video_id!==id){
+    reproductor.loadVideoById({videoId:id,startSeconds:segundo});
+  }else if(reproductor.getPlayerState()===YT.PlayerState.PLAYING){
+    reproductor.pauseVideo();
+  }else{
+    reproductor.seekTo(segundo,true);
+    reproductor.playVideo();
+  }
+}
+</script>
+</body>
+</html>
