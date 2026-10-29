@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coros | Museo Fotográfico del Carnaval de Cádiz</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#050505;color:#eee;font-family:Georgia,"Times New Roman",serif}
+header{text-align:center;padding:30px 15px 22px;background:linear-gradient(#17130c,#050505)}
+header h1{color:#d4b574;font-size:clamp(32px,5vw,52px);font-weight:normal;margin:14px 0}
+header p{color:#c9c0ae;letter-spacing:2px;font-size:12px}
+.back{display:inline-block;color:#d4b574;text-decoration:none;border:1px solid #8c713d;padding:10px 18px;margin:8px 0;letter-spacing:1px;font-size:13px}
+.back:hover{background:#d4b574;color:#080808}
+.intro{max-width:850px;margin:auto;padding:12px 22px 25px;text-align:center;line-height:1.8;color:#d0c8ba}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:22px;max-width:1450px;margin:auto;padding:0 18px;align-items:start}
+.gallery{min-width:0}
+h2.section-title{text-align:center;color:#d4b574;font-size:25px;font-weight:normal;margin:15px 10px}
+.carousel{position:relative;background:#000}
+.slide{display:none;text-align:center;margin:0}
+.slide.active{display:block;animation:fade .7s}
+.slide img{display:block;width:100%;height:min(62vw,680px);min-height:300px;object-fit:contain;background:#000}
+.caption{color:#d4b574;padding:13px 10px 20px;font-size:17px;letter-spacing:.5px}
+.arrow{position:absolute;top:43%;transform:translateY(-50%);width:46px;height:46px;border:1px solid #8c713d;border-radius:50%;background:#090909c9;color:#e0c27f;font-size:29px;cursor:pointer}
+.arrow:hover{background:#d4b574;color:#050505}
+.prev{left:14px}.next{right:14px}
+.dots{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px 10px 25px}
+.dot{width:11px;height:11px;border-radius:50%;border:1px solid #d4b574;background:#171717;padding:0;cursor:pointer}
+.dot.active{background:#d4b574}
+.music{margin:12px auto 40px;padding:20px 15px;text-align:center;border-top:1px solid #4e4027}
+.music p{color:#c9c0ae;line-height:1.7}
+select,button{font-family:Georgia,"Times New Roman",serif}
+select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;background:#111;color:#e1c681;border:1px solid #8c713d;font-size:15px}
+.play{background:#d4b574;color:#090909;border:0;padding:13px 23px;cursor:pointer;font-size:14px}
+.play:hover{background:#f0d79b}
+.prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px}
+.prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
+.prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #302719}
+.prize img{width:76px;height:92px;object-fit:cover;background:#111;border:1px solid #554326}
+.year{color:#d4b574;font-size:12px;margin-bottom:4px}
+.prize h3{color:#e6d4aa;font-size:14px;font-weight:normal;line-height:1.35;margin:0 0 6px}
+.tag{display:inline-block;color:#090909;background:#d4b574;font-size:9px;letter-spacing:.5px;padding:4px 5px;margin-bottom:7px}
+.prize small{display:block;color:#c9c0ae;font-size:11px;line-height:1.5;margin-bottom:8px}
+.prize button{color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;cursor:pointer}
+.prize button:hover{background:#d4b574;color:#080808}
+.note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
+footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
+@keyframes fade{from{opacity:.35}to{opacity:1}}
+@media(max-width:850px){
+ .layout{grid-template-columns:minmax(0,1fr);padding:0 10px}
+ .prizes{border-left:0;border-top:1px solid #4e4027;padding:20px 0;margin-top:5px}
+ .prizes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+}
+@media(max-width:480px){
+ .prizes-grid{grid-template-columns:1fr}
+ .slide img{height:65vh;min-height:260px}
+ .arrow{width:39px;height:39px;font-size:24px}
+ .prev{left:7px}.next{right:7px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">← VOLVER AL MUSEO</a>
+  <h1>La sala de los Coros</h1>
+  <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
+</header>
+
+<div class="intro">
+  <p>El tango, las voces, los instrumentos y la belleza de una modalidad
+  única. Un homenaje a los coros que llenan de música el Gran Teatro Falla
+  y llevan el Carnaval a las calles de Cádiz.</p>
+</div>
+
+<main class="layout">
+<section class="gallery">
+  <h2 class="section-title">Galería fotográfica</h2>
+
+  <div class="carousel" aria-label="Galería de fotografías de coros">
+
+    <figure class="slide active">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro Los iluminados">
+      <figcaption class="caption">Los iluminados · COAC 2024</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://fotografias.lasexta.com/clipping/cmsimages02/2024/02/08/33B2134D-8A17-4FAB-8FBF-4A7CD2140C68/coro-iluminados-tercera-sesion-semifinales-concurso-oficial-agrupaciones-carnavalescas-coac_103.jpg?crop=1707%2C1280%2Cx109%2Cy0&format=webply&height=900&optimize=low&width=1200" alt="Los iluminados en el escenario">
+      <figcaption class="caption">Las voces del Falla</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://ondacadiz.es/sites/default/files/styles/webp/public/noticias/2024-01/imagenes/18012024-los%20iluminados-128.jpg.webp?itok=-LfEFD0h" alt="Los iluminados cantando">
+      <figcaption class="caption">La fuerza de un tango</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://static.grupojoly.com/clip/6c5a02a1-0653-4edd-8948-8fcdc0be4f7f_source-aspect-ratio_1600w_0.jpg" alt="Detalle del tipo de Los iluminados">
+      <figcaption class="caption">El arte también está en los detalles</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Coro Los luciérnagas">
+      <figcaption class="caption">Los luciérnagas · COAC 2024</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2025/02/25/coro-RuYeLBBR2MsPhj5bnnsFQNN-1200x840%40abc.jpg" alt="Coro El Gallinero">
+      <figcaption class="caption">El Gallinero · COAC 2025</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2025/03/01/gallinero_20250301070440-U64224243221Xkz-1200x630%40abc.jpg" alt="El Gallinero en el Carnaval">
+      <figcaption class="caption">El Gallinero y su universo carnavalesco</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/fotonoticias/2025/03/01/screenshot_27_112e2.jpg" alt="El Gallinero en la final">
+      <figcaption class="caption">La emoción de la final</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Los iluminados en el concurso">
+      <figcaption class="caption">Una tradición que sigue viva</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://fotografias.lasexta.com/clipping/cmsimages02/2024/02/08/33B2134D-8A17-4FAB-8FBF-4A7CD2140C68/coro-iluminados-tercera-sesion-semifinales-concurso-oficial-agrupaciones-carnavalescas-coac_103.jpg?crop=1707%2C1280%2Cx109%2Cy0&format=webply&height=900&optimize=low&width=1200" alt="Los coros sobre las tablas">
+      <figcaption class="caption">Cádiz canta en el Gran Teatro Falla</figcaption>
+    </figure>
+
+    <button class="arrow prev" type="button" aria-label="Fotografía anterior" onclick="mover(-1)">‹</button>
+    <button class="arrow next" type="button" aria-label="Fotografía siguiente" onclick="mover(1)">›</button>
+  </div>
+
+  <div class="dots" id="dots" aria-label="Elegir fotografía"></div>
+
+  <section class="music">
+    <h2 class="section-title">Tangos y coplas de coros</h2>
+    <p>Selecciona un coro para buscar sus actuaciones y sus tangos.
+    Cuando me envíes los enlaces de YouTube, prepararemos el reproductor
+    integrado como en la sala de las chirigotas.</p>
+
+    <label for="song">Selecciona un coro:</label>
+    <select id="song">
+      <option value="El Gallinero coro Carnaval de Cádiz 2025">El Gallinero · 2025</option>
+      <option value="Cádiz El Show coro Carnaval de Cádiz 2025">Cádiz, el show · 2025</option>
+      <option value="Las entrañas de Cádiz coro 2025">Las entrañas de Cádiz · 2025</option>
+      <option value="Los iluminados coro Carnaval de Cádiz 2024">Los iluminados · 2024</option>
+      <option value="Los luciérnagas coro Carnaval de Cádiz 2024">Los luciérnagas · 2024</option>
+    </select>
+
+    <button class="play" type="button" onclick="buscarCoro()">▶ BUSCAR ACTUACIÓN</button>
+  </section>
+</section>
+
+<aside class="prizes">
+  <h2>Primeros premios</h2>
+
+  <div class="prizes-grid">
+
+    <article class="prize">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2025/03/01/gallinero_20250301070440-U64224243221Xkz-1200x630%40abc.jpg" alt="El Gallinero">
+      <div>
+        <div class="year">2025</div>
+        <h3>El Gallinero</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>Antonio Bayón y Rubén Cao</small>
+        <button onclick="buscarActuacion('El Gallinero coro final COAC 2025')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Los iluminados">
+      <div>
+        <div class="year">2024</div>
+        <h3>Los iluminados</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2024</small>
+        <button onclick="buscarActuacion('Los iluminados coro final COAC 2024')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Los luciérnagas">
+      <div>
+        <div class="year">2023</div>
+        <h3>Los negros</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2023</small>
+        <button onclick="buscarActuacion('Los negros coro primer premio COAC 2023 Cádiz')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2022</div>
+        <h3>Los babeta</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2022</small>
+        <button onclick="buscarActuacion('Los babeta coro final COAC 2022 Cádiz')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2020</div>
+        <h3>Tócame</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2020</small>
+        <button onclick="buscarActuacion('Tócame coro final COAC 2020 Cádiz')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2019</div>
+        <h3>El batallitas</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2019</small>
+        <button onclick="buscarActuacion('El batallitas coro final COAC 2019 Cádiz')">▶ Ver actuación</button>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">Las actuaciones se abren en YouTube para que puedas elegir la versión que prefieras.</p>
+</aside>
+</main>
+
+<footer>
+  Museo Fotográfico del Carnaval de Cádiz · Sala de los Coros
+  <br><br>
+  <a class="back" href="index.html">← VOLVER A LA PORTADA</a>
+</footer>
+
+<script>
+const slides=Array.from(document.querySelectorAll('.slide'));
+const dotsBox=document.getElementById('dots');
+let actual=0,reloj;
+
+slides.forEach((slide,i)=>{
+  const dot=document.createElement('button');
+  dot.type='button';
+  dot.className='dot'+(i===0?' active':'');
+  dot.setAttribute('aria-label','Ver fotografía '+(i+1));
+  dot.onclick=()=>{mostrar(i);reiniciarReloj()};
+  dotsBox.appendChild(dot);
+});
+
+const dots=Array.from(dotsBox.children);
+
+function mostrar(n){
+  actual=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===actual));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===actual));
+}
+
+function mover(n){
+  mostrar(actual+n);
+  reiniciarReloj();
+}
+
+function reiniciarReloj(){
+  clearInterval(reloj);
+  reloj=setInterval(()=>mostrar(actual+1),5500);
+}
+
+reiniciarReloj();
+
+function buscarCoro(){
+  const busqueda=document.getElementById('song').value;
+  window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(busqueda),'_blank','noopener');
+}
+
+function buscarActuacion(busqueda){
+  window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(busqueda),'_blank','noopener');
+}
+</script>
+
+</body>
+</html>
