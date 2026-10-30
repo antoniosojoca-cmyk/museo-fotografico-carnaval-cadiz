@@ -1,10 +1,12 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coros | Museo Fotográfico del Carnaval de Cádiz</title>
+
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;background:#050505;color:#eee;font-family:Georgia,"Times New Roman",serif}
@@ -36,15 +38,16 @@ select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;ba
 .play:hover{background:#f0d79b}
 .player{position:relative;width:100%;max-width:760px;margin:25px auto 5px;aspect-ratio:16/9;background:#000;border:1px solid #4e4027}
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px}
+.prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px;min-width:0}
 .prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
-.prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #302719}
+.prizes-grid{display:block}
+.prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #302719}
 .prize img{width:76px;height:92px;object-fit:cover;background:#111;border:1px solid #554326}
 .year{color:#d4b574;font-size:12px;margin-bottom:4px}
 .prize h3{color:#e6d4aa;font-size:14px;font-weight:normal;line-height:1.35;margin:0 0 6px}
 .tag{display:inline-block;color:#090909;background:#d4b574;font-size:9px;letter-spacing:.5px;padding:4px 5px;margin-bottom:7px}
 .prize small{display:block;color:#c9c0ae;font-size:11px;line-height:1.5;margin-bottom:8px}
-.prize button{color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;cursor:pointer}
+.prize button{color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;cursor:pointer;line-height:1.4}
 .prize button:hover{background:#d4b574;color:#080808}
 .note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
 footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
@@ -53,8 +56,9 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
  .layout{grid-template-columns:minmax(0,1fr);padding:0 10px}
  .prizes{border-left:0;border-top:1px solid #4e4027;padding:20px 0;margin-top:5px}
  .prizes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+ .prize{padding:12px 5px}
 }
-@media(max-width:480px){
+@media(max-width:520px){
  .prizes-grid{grid-template-columns:1fr}
  .slide img{height:65vh;min-height:260px}
  .arrow{width:39px;height:39px;font-size:24px}
@@ -62,6 +66,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -77,6 +82,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 </div>
 
 <main class="layout">
+
 <section class="gallery">
   <h2 class="section-title">Galería fotográfica</h2>
 
@@ -118,17 +124,17 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/a4cab58d-8e7c-40fc-a8e9-acb42d8dabf9_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/a4cab58d-8e7c-40fc-a8e9-acb42d8dabf9_16-9-aspect-ratio_1200w_0.webp" alt="Cádiz, el show">
       <figcaption class="caption">Cadiz,el show .COAC 2026</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.canalsur.es/clip/4cfbe680-71fb-49e4-bbe5-35d9c43ff4ac_source-aspect-ratio_1600w_0.jpg">
+      <img src="https://static.canalsur.es/clip/4cfbe680-71fb-49e4-bbe5-35d9c43ff4ac_source-aspect-ratio_1600w_0.jpg" alt="Coro La dama de Cádiz">
       <figcaption class="caption">Coro La dama de cadiz .COAC 2024</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/4d3206d9-9bb8-4c7d-9b93-e8c6ef203f2e_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/4d3206d9-9bb8-4c7d-9b93-e8c6ef203f2e_16-9-aspect-ratio_1200w_0.webp" alt="Son y sal">
       <figcaption class="caption">Coro "Son y sal" .COAC 2025</figcaption>
     </figure>
 
@@ -145,12 +151,12 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 
     <label for="song">Selecciona una música:</label>
     <select id="song">
-      <option value="PKkXgWsPW3c">Música de coros 1</option>
-      <option value="fj3cZOcBM1A">Música de coros 2</option>
-      <option value="k7U4GvTgLFo">Música de coros 3 · Inicio</option>
-      <option value="k7U4GvTgLFo&amp;t=46">Música de coros 3 · Desde 00:46</option>
-      <option value="ZLO9USrBzzU&amp;t=25">Música de coros 4 · Desde 00:25</option>
-      <option value="nfnu2c1WlkI">Música de coros 5</option>
+      <option value="PKkXgWsPW3c|0">Música de coros 1</option>
+      <option value="fj3cZOcBM1A|0">Música de coros 2</option>
+      <option value="k7U4GvTgLFo|0">Música de coros 3 · Inicio</option>
+      <option value="k7U4GvTgLFo|46">Música de coros 3 · Desde 00:46</option>
+      <option value="ZLO9USrBzzU|25">Música de coros 4 · Desde 00:25</option>
+      <option value="nfnu2c1WlkI|0">Música de coros 5</option>
     </select>
 
     <button class="play" type="button" onclick="reproducirCoro()">▶ ESCUCHAR MÚSICA</button>
@@ -173,44 +179,76 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
   <div class="prizes-grid">
 
     <article class="prize">
-  
-     
-<!-- EL GALLINERO · 2025 -->
-<button onclick="escucharPremio('https://www.canalsur.es/television/carnaval-sur/coro-gallinero_1_1314728.html')">▶ Escuchar actuación · 00:34</button>
-
-<!-- LOS ILUMINADOS · 2024 -->
-<button onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar música · 01:11</button>
-
-<!-- LOS NEGROS · 2023 -->
-<button onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar música · 00:37</button>
-
-<!-- LOS BABETA · 2022 -->
-<button onclick="escucharPremio('https://www.youtube.com/watch?v=p89ygHudYYU')">▶ Escuchar música</button>
-
-<!-- TÓCAME · 2020 -->
-<button onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo')">▶ Escuchar música</button>
-
-<!-- EL BATALLITAS · 2019 -->
-<button onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar música · 00:23</button>
-
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2025/03/01/gallinero_20250301070440-U64224243221Xkz-1200x630%40abc.jpg" alt="El Gallinero">
+      <div>
+        <div class="year">2025</div>
+        <h3>El Gallinero</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>Antonio Bayón y Rubén Cao</small>
+        <button type="button" onclick="escucharPremio('https://www.canalsur.es/television/carnaval-sur/coro-gallinero_1_1314728.html')">▶ Escuchar actuación · 00:34</button>
       </div>
     </article>
 
     <article class="prize">
-  
-     
- 
-    
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Los iluminados">
+      <div>
+        <div class="year">2024</div>
+        <h3>Los iluminados</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2024</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar música · 01:11</button>
       </div>
+    </article>
 
-    
+    <article class="prize">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Coro de Cádiz">
+      <div>
+        <div class="year">2023</div>
+        <h3>Los negros</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2023</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar música · 00:37</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2022</div>
+        <h3>Los babeta</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2022</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=p89ygHudYYU')">▶ Escuchar música</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2020</div>
+        <h3>Tócame</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2020</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo')">▶ Escuchar música</button>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
+      <div>
+        <div class="year">2019</div>
+        <h3>El batallitas</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2019</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar música · 00:23</button>
       </div>
     </article>
 
   </div>
 
-  <p class="note">Las actuaciones se abren en YouTube para que puedas elegir la versión que prefieras.</p>
+  <p class="note">Pulsa cada botón para abrir la actuación o la música correspondiente.</p>
 </aside>
+
 </main>
 
 <footer>
@@ -222,7 +260,8 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 <script>
 const slides=Array.from(document.querySelectorAll('.slide'));
 const dotsBox=document.getElementById('dots');
-let actual=0,reloj;
+let actual=0;
+let reloj;
 
 slides.forEach((slide,i)=>{
   const dot=document.createElement('button');
@@ -254,27 +293,22 @@ function reiniciarReloj(){
 reiniciarReloj();
 
 function reproducirCoro(){
-  const elegido=document.getElementById('song').value;
-  const partes=elegido.split('&t=');
-  const id=partes[0];
-  const inicio=partes[1] ? '&start='+partes[1] : '';
+  const elegido=document.getElementById('song').value.split('|');
+  const id=elegido[0];
+  const inicio=parseInt(elegido[1],10)||0;
   document.getElementById('reproductor').src=
-    'https://www.youtube-nocookie.com/embed/'+id.replace(/&amp;/g,'')+
-    '?autoplay=1'+inicio;
+    'https://www.youtube-nocookie.com/embed/'+id+
+    '?autoplay=1&start='+inicio;
 }
 
-function buscarActuacion(busqueda){
-  window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(busqueda),'_blank','noopener');
-}
- 
 function escucharPremio(enlace){
   window.open(enlace,'_blank','noopener');
 }
-
 </script>
 
 </body>
 </html>
+
 
 
 
