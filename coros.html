@@ -34,6 +34,8 @@ select,button{font-family:Georgia,"Times New Roman",serif}
 select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;background:#111;color:#e1c681;border:1px solid #8c713d;font-size:15px}
 .play{background:#d4b574;color:#090909;border:0;padding:13px 23px;cursor:pointer;font-size:14px}
 .play:hover{background:#f0d79b}
+.player{position:relative;width:100%;max-width:760px;margin:25px auto 5px;aspect-ratio:16/9;background:#000;border:1px solid #4e4027}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px}
 .prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
 .prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #302719}
@@ -81,22 +83,22 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
   <div class="carousel" aria-label="Galería de fotografías de coros">
 
     <figure class="slide active">
-      <img src="https://static.grupojoly.com/clip/02c5eb88-ce93-4e39-a5ba-a79511cc5abc_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/02c5eb88-ce93-4e39-a5ba-a79511cc5abc_16-9-aspect-ratio_1200w_0.webp" alt="Los Niños">
       <figcaption class="caption">Los Niños · COAC 2025</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/847fc80e-b879-429b-8191-8156ecba70f9_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/847fc80e-b879-429b-8191-8156ecba70f9_16-9-aspect-ratio_1200w_0.webp" alt="Los Martínez">
       <figcaption class="caption">Los Martinez . COADC 2023</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/9f93de0a-aae4-48f6-9ded-81ef4c873107_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/9f93de0a-aae4-48f6-9ded-81ef4c873107_16-9-aspect-ratio_1200w_0.webp" alt="Las entrañas de Cádiz">
       <figcaption class="caption">Las entrañas de Cadiz .COAC 2025</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/9aaa1e9f-7e5d-4766-801e-53de3f05a20c_16-9-aspect-ratio_1200w_0.webp" alt="Detalle del tipo de Los iluminados">
+      <img src="https://static.grupojoly.com/clip/9aaa1e9f-7e5d-4766-801e-53de3f05a20c_16-9-aspect-ratio_1200w_0.webp" alt="El Gallinero">
       <figcaption class="caption">El Gallinero . COAC 2026</figcaption>
     </figure>
 
@@ -106,12 +108,12 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
     </figure>
 
     <figure class="slide">
-      <img src="https://static.canalsur.es/clip/9472dddf-9658-482d-a8a1-a411226a964b_source-aspect-ratio_1600w_0.jpg">
+      <img src="https://static.canalsur.es/clip/9472dddf-9658-482d-a8a1-a411226a964b_source-aspect-ratio_1600w_0.jpg" alt="El Lado Oscuro">
       <figcaption class="caption">El Lado Oscuro · COAC 2025</figcaption>
     </figure>
 
     <figure class="slide">
-      <img src="https://static.grupojoly.com/clip/2b6ea513-3215-4a23-a5c0-8ff99767a6b8_16-9-aspect-ratio_1200w_0.webp">
+      <img src="https://static.grupojoly.com/clip/2b6ea513-3215-4a23-a5c0-8ff99767a6b8_16-9-aspect-ratio_1200w_0.webp" alt="Los del Patio">
       <figcaption class="caption">Los del Patio .COAC 2019</figcaption>
     </figure>
 
@@ -138,20 +140,30 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 
   <section class="music">
     <h2 class="section-title">Tangos y coplas de coros</h2>
-    <p>Selecciona un coro para buscar sus actuaciones y sus tangos.
-    Cuando me envíes los enlaces de YouTube, prepararemos el reproductor
-    integrado como en la sala de las chirigotas.</p>
+    <p>Elige una de las músicas y pulsa el botón para escucharla aquí mismo,
+    sin salir de la sala de los Coros.</p>
 
-    <label for="song">Selecciona un coro:</label>
+    <label for="song">Selecciona una música:</label>
     <select id="song">
-      <option value="El Gallinero coro Carnaval de Cádiz 2025">El Gallinero · 2025</option>
-      <option value="Cádiz El Show coro Carnaval de Cádiz 2025">Cádiz, el show · 2025</option>
-      <option value="Las entrañas de Cádiz coro 2025">Las entrañas de Cádiz · 2025</option>
-      <option value="Los iluminados coro Carnaval de Cádiz 2024">Los iluminados · 2024</option>
-      <option value="Los luciérnagas coro Carnaval de Cádiz 2024">Los luciérnagas · 2024</option>
+      <option value="PKkXgWsPW3c">Música de coros 1</option>
+      <option value="fj3cZOcBM1A">Música de coros 2</option>
+      <option value="k7U4GvTgLFo">Música de coros 3 · Inicio</option>
+      <option value="k7U4GvTgLFo&amp;t=46">Música de coros 3 · Desde 00:46</option>
+      <option value="ZLO9USrBzzU&amp;t=25">Música de coros 4 · Desde 00:25</option>
+      <option value="nfnu2c1WlkI">Música de coros 5</option>
     </select>
 
-    <button class="play" type="button" onclick="buscarCoro()">▶ BUSCAR ACTUACIÓN</button>
+    <button class="play" type="button" onclick="reproducirCoro()">▶ ESCUCHAR MÚSICA</button>
+
+    <div class="player">
+      <iframe id="reproductor"
+        src="https://www.youtube-nocookie.com/embed/PKkXgWsPW3c"
+        title="Música de coros del Carnaval de Cádiz"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
   </section>
 </section>
 
@@ -183,7 +195,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
     </article>
 
     <article class="prize">
-      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Los luciérnagas">
+      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Coro">
       <div>
         <div class="year">2023</div>
         <h3>Los negros</h3>
@@ -272,9 +284,14 @@ function reiniciarReloj(){
 
 reiniciarReloj();
 
-function buscarCoro(){
-  const busqueda=document.getElementById('song').value;
-  window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(busqueda),'_blank','noopener');
+function reproducirCoro(){
+  const elegido=document.getElementById('song').value;
+  const partes=elegido.split('&t=');
+  const id=partes[0];
+  const inicio=partes[1] ? '&start='+partes[1] : '';
+  document.getElementById('reproductor').src=
+    'https://www.youtube-nocookie.com/embed/'+id.replace(/&amp;/g,'')+
+    '?autoplay=1'+inicio;
 }
 
 function buscarActuacion(busqueda){
@@ -284,3 +301,8 @@ function buscarActuacion(busqueda){
 
 </body>
 </html>
+
+
+
+
+
