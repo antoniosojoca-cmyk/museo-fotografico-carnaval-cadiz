@@ -173,68 +173,37 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
   <div class="prizes-grid">
 
     <article class="prize">
-      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2025/03/01/gallinero_20250301070440-U64224243221Xkz-1200x630%40abc.jpg" alt="El Gallinero">
-      <div>
-        <div class="year">2025</div>
-        <h3>El Gallinero</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>Antonio Bayón y Rubén Cao</small>
-        <button onclick="buscarActuacion('El Gallinero coro final COAC 2025')">▶ Ver actuación</button>
+  
+     
+<!-- EL GALLINERO · 2025 -->
+<button onclick="escucharPremio('https://www.canalsur.es/television/carnaval-sur/coro-gallinero_1_1314728.html')">▶ Escuchar actuación · 00:34</button>
+
+<!-- LOS ILUMINADOS · 2024 -->
+<button onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar música · 01:11</button>
+
+<!-- LOS NEGROS · 2023 -->
+<button onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar música · 00:37</button>
+
+<!-- LOS BABETA · 2022 -->
+<button onclick="escucharPremio('https://www.youtube.com/watch?v=p89ygHudYYU')">▶ Escuchar música</button>
+
+<!-- TÓCAME · 2020 -->
+<button onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo')">▶ Escuchar música</button>
+
+<!-- EL BATALLITAS · 2019 -->
+<button onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar música · 00:23</button>
+
       </div>
     </article>
 
     <article class="prize">
-      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Los iluminados">
-      <div>
-        <div class="year">2024</div>
-        <h3>Los iluminados</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>COAC 2024</small>
-        <button onclick="buscarActuacion('Los iluminados coro final COAC 2024')">▶ Ver actuación</button>
+  
+     
+ 
+    
       </div>
-    </article>
 
-    <article class="prize">
-      <img src="https://s1.abcstatics.com/lavozdigital/www/multimedia/carnaval/2024/01/14/14012024-loslucierganas-148-kI3G-U76314434734Lre-1200x840%40abc.jpg" alt="Coro">
-      <div>
-        <div class="year">2023</div>
-        <h3>Los negros</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>COAC 2023</small>
-        <button onclick="buscarActuacion('Los negros coro primer premio COAC 2023 Cádiz')">▶ Ver actuación</button>
-      </div>
-    </article>
-
-    <article class="prize">
-      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
-      <div>
-        <div class="year">2022</div>
-        <h3>Los babeta</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>COAC 2022</small>
-        <button onclick="buscarActuacion('Los babeta coro final COAC 2022 Cádiz')">▶ Ver actuación</button>
-      </div>
-    </article>
-
-    <article class="prize">
-      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
-      <div>
-        <div class="year">2020</div>
-        <h3>Tócame</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>COAC 2020</small>
-        <button onclick="buscarActuacion('Tócame coro final COAC 2020 Cádiz')">▶ Ver actuación</button>
-      </div>
-    </article>
-
-    <article class="prize">
-      <img src="https://www.diariodecadiz.es/2024/01/18/diario_del_carnaval/imagenes/Coro-iluminados_1867624653_201657540_667x375.jpg" alt="Coro del Carnaval">
-      <div>
-        <div class="year">2019</div>
-        <h3>El batallitas</h3>
-        <span class="tag">PRIMER PREMIO</span>
-        <small>COAC 2019</small>
-        <button onclick="buscarActuacion('El batallitas coro final COAC 2019 Cádiz')">▶ Ver actuación</button>
+    
       </div>
     </article>
 
@@ -297,6 +266,11 @@ function reproducirCoro(){
 function buscarActuacion(busqueda){
   window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(busqueda),'_blank','noopener');
 }
+ 
+function escucharPremio(enlace){
+  window.open(enlace,'_blank','noopener');
+}
+
 </script>
 
 </body>
