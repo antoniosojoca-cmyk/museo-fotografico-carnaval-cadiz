@@ -311,33 +311,25 @@ function reproducirCoro(){
 }
 
 function escucharPremio(enlace){
-  let url;
-  try{
-    url=new URL(enlace);
-  }catch(e){
-    alert('No se ha podido reconocer el enlace musical.');
-    return;
-  }
-
-  let id='';
-  let inicio=0;
-
-  if(url.hostname.includes('youtube.com')){
-    id=url.searchParams.get('v')||'';
-    inicio=parseInt(url.searchParams.get('t')||'0',10)||0;
-  }else if(url.hostname==='youtu.be'){
-    id=url.pathname.substring(1);
-    inicio=parseInt(url.searchParams.get('t')||'0',10)||0;
-  }
+  let url = new URL(enlace);
+  let id = url.searchParams.get('v');
+  let inicio = parseInt(url.searchParams.get('t') || '0', 10);
 
   if(!id){
-    alert('Este enlace no es un vídeo de YouTube compatible con el reproductor oculto. Necesitamos el enlace de YouTube de la actuación.');
+    alert('Este enlace no se puede reproducir aquí.');
     return;
   }
 
-  document.getElementById('audioPremio').src=
-    'https://www.youtube-nocookie.com/embed/'+id+
-    '?autoplay=1&start='+inicio;
+  const reproductor = document.getElementById('audioPremio');
+  reproductor.src =
+    'https://www.youtube-nocookie.com/embed/' +
+    id + '?autoplay=1&start=' + inicio;
+}
+ 
+  }
+
+
+ 
 }
 </script>
 
