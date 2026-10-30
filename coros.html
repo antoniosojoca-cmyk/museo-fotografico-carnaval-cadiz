@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -51,6 +50,8 @@ select{display:block;width:100%;max-width:500px;margin:16px auto;padding:13px;ba
 .prize button:hover{background:#d4b574;color:#080808}
 .note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
 footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
+.audio-oculto{position:fixed;width:1px;height:1px;left:-100px;bottom:0;overflow:hidden;opacity:.01;pointer-events:none}
+.audio-oculto iframe{width:1px;height:1px;border:0}
 @keyframes fade{from{opacity:.35}to{opacity:1}}
 @media(max-width:850px){
  .layout{grid-template-columns:minmax(0,1fr);padding:0 10px}
@@ -146,8 +147,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
 
   <section class="music">
     <h2 class="section-title">Tangos y coplas de coros</h2>
-    <p>Elige una de las músicas y pulsa el botón para escucharla aquí mismo,
-    sin salir de la sala de los Coros.</p>
+    <p>Elige una música y escúchala desde esta sala.</p>
 
     <label for="song">Selecciona una música:</label>
     <select id="song">
@@ -165,7 +165,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
       <iframe id="reproductor"
         src="https://www.youtube-nocookie.com/embed/PKkXgWsPW3c"
         title="Música de coros del Carnaval de Cádiz"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
       </iframe>
@@ -184,8 +184,8 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <div class="year">2025</div>
         <h3>El Gallinero</h3>
         <span class="tag">PRIMER PREMIO</span>
-        <small>Antonio Bayón y Rubén Cao</small>
-        <button type="button" onclick="escucharPremio('https://www.canalsur.es/television/carnaval-sur/coro-gallinero_1_1314728.html')">▶ Escuchar actuación · 00:34</button>
+        <small>COAC 2025</small>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=PKkXgWsPW3c&amp;t=34s')">▶ Escuchar · 00:34</button>
       </div>
     </article>
 
@@ -196,7 +196,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <h3>Los iluminados</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2024</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar música · 01:11</button>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar · 01:11</button>
       </div>
     </article>
 
@@ -207,7 +207,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <h3>Los negros</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2023</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar música · 00:37</button>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar · 00:37</button>
       </div>
     </article>
 
@@ -240,16 +240,25 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <h3>El batallitas</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2019</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar música · 00:23</button>
+        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar · 00:23</button>
       </div>
     </article>
 
   </div>
 
-  <p class="note">Pulsa cada botón para abrir la actuación o la música correspondiente.</p>
+  <p class="note">La música se reproduce en el reproductor discreto de esta sala, sin abrir una nueva pestaña.</p>
 </aside>
 
 </main>
+
+<!-- Reproductor separado y oculto para la música de los premios -->
+<div class="audio-oculto" aria-hidden="true">
+  <iframe id="audioPremio"
+    src="about:blank"
+    title="Audio de los premios de coros"
+    allow="autoplay; encrypted-media">
+  </iframe>
+</div>
 
 <footer>
   Museo Fotográfico del Carnaval de Cádiz · Sala de los Coros
@@ -302,12 +311,39 @@ function reproducirCoro(){
 }
 
 function escucharPremio(enlace){
-  window.open(enlace,'_blank','noopener');
+  let url;
+  try{
+    url=new URL(enlace);
+  }catch(e){
+    alert('No se ha podido reconocer el enlace musical.');
+    return;
+  }
+
+  let id='';
+  let inicio=0;
+
+  if(url.hostname.includes('youtube.com')){
+    id=url.searchParams.get('v')||'';
+    inicio=parseInt(url.searchParams.get('t')||'0',10)||0;
+  }else if(url.hostname==='youtu.be'){
+    id=url.pathname.substring(1);
+    inicio=parseInt(url.searchParams.get('t')||'0',10)||0;
+  }
+
+  if(!id){
+    alert('Este enlace no es un vídeo de YouTube compatible con el reproductor oculto. Necesitamos el enlace de YouTube de la actuación.');
+    return;
+  }
+
+  document.getElementById('audioPremio').src=
+    'https://www.youtube-nocookie.com/embed/'+id+
+    '?autoplay=1&start='+inicio;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
