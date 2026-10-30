@@ -185,7 +185,7 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <h3>El Gallinero</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2025</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=PKkXgWsPW3c&amp;t=34s')">▶ Escuchar · 00:34</button>
+        <button type="button" onclick="escucharPremio('Xv01DWqXQxc',0)">▶ Escuchar música</button>
       </div>
     </article>
 
@@ -196,57 +196,57 @@ footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #3
         <h3>Los iluminados</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2024</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=71s')">▶ Escuchar · 01:11</button>
+        <button type="button" onclick="escucharPremio('Xv01DWqXQxc',37)">▶ Escuchar · 00:37</button>
       </div>
     </article>
 
     <article class="prize">
-      <img src="https://elrincondelcarnaval.com/wp-content/uploads/2023/02/18022023-los-negros-027-scaled.jpg">
+      <img src="https://elrincondelcarnaval.com/wp-content/uploads/2023/02/18022023-los-negros-027-scaled.jpg" alt="Los negros">
       <div>
         <div class="year">2023</div>
         <h3>Los negros</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2023</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=ko__tbErgs0&amp;t=37s')">▶ Escuchar · 00:37</button>
+        <button type="button" onclick="escucharPremio('AVzgsiSXbv8',72)">▶ Escuchar · 01:12</button>
       </div>
     </article>
 
     <article class="prize">
-      <img src="https://s1.abcstatics.com/media/MM/2022/05/31/v/losbabeta%20(19).JPG?width=430">
+      <img src="https://s1.abcstatics.com/media/MM/2022/05/31/v/losbabeta%20(19).JPG?width=430" alt="Los babeta">
       <div>
         <div class="year">2022</div>
         <h3>Los babeta</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2022</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=p89ygHudYYU')">▶ Escuchar música</button>
+        <button type="button" onclick="escucharPremio('p89ygHudYYU',0)">▶ Escuchar música</button>
       </div>
     </article>
 
     <article class="prize">
-      <img src="https://s1.abcstatics.com/media/MM/2020/02/18/v/tocame(6)_xoptimizadax.jpg?width=430">
+      <img src="https://s1.abcstatics.com/media/MM/2020/02/18/v/tocame(6)_xoptimizadax.jpg?width=430" alt="Tócame">
       <div>
         <div class="year">2020</div>
         <h3>Tócame</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2020</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo')">▶ Escuchar música</button>
+        <button type="button" onclick="escucharPremio('4o-bVZ1AGVo',27)">▶ Escuchar · 00:27</button>
       </div>
     </article>
 
     <article class="prize">
-      <img src="https://static.grupojoly.com/clip/95a1dfc9-9f68-435d-9b88-d8f1145dfdf7_16-9-aspect-ratio_1600w_0.webp">
+      <img src="https://static.grupojoly.com/clip/95a1dfc9-9f68-435d-9b88-d8f1145dfdf7_16-9-aspect-ratio_1600w_0.webp" alt="El batallitas">
       <div>
         <div class="year">2019</div>
         <h3>El batallitas</h3>
         <span class="tag">PRIMER PREMIO</span>
         <small>COAC 2019</small>
-        <button type="button" onclick="escucharPremio('https://www.youtube.com/watch?v=4o-bVZ1AGVo&amp;t=23s')">▶ Escuchar · 00:23</button>
+        <button type="button" onclick="escucharPremio('p9LQ70f8CGE',671)">▶ Escuchar · 11:11</button>
       </div>
     </article>
 
   </div>
 
-  <p class="note">La música se reproduce en el reproductor discreto de esta sala, sin abrir una nueva pestaña.</p>
+  <p class="note">La música de los premios se reproduce en el reproductor oculto de esta sala, sin abrir voluntariamente una nueva pestaña.</p>
 </aside>
 
 </main>
@@ -305,36 +305,25 @@ function reproducirCoro(){
   const elegido=document.getElementById('song').value.split('|');
   const id=elegido[0];
   const inicio=parseInt(elegido[1],10)||0;
+
   document.getElementById('reproductor').src=
     'https://www.youtube-nocookie.com/embed/'+id+
     '?autoplay=1&start='+inicio;
 }
 
-function escucharPremio(enlace){
-  let url = new URL(enlace);
-  let id = url.searchParams.get('v');
-  let inicio = parseInt(url.searchParams.get('t') || '0', 10);
+function escucharPremio(id,inicio){
+  const reproductor=document.getElementById('audioPremio');
 
-  if(!id){
-    alert('Este enlace no se puede reproducir aquí.');
-    return;
-  }
-
-  const reproductor = document.getElementById('audioPremio');
-  reproductor.src =
-    'https://www.youtube-nocookie.com/embed/' +
-    id + '?autoplay=1&start=' + inicio;
-}
- 
-  }
-
-
- 
+  reproductor.src=
+    'https://www.youtube-nocookie.com/embed/'+
+    encodeURIComponent(id)+
+    '?autoplay=1&start='+inicio;
 }
 </script>
 
 </body>
 </html>
+
 
 
 
