@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuartetos | Museo Fotográfico del Carnaval de Cádiz</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#050505;color:#eee;font-family:Georgia,"Times New Roman",serif}
+header{text-align:center;padding:30px 15px 22px;background:linear-gradient(#17130c,#050505)}
+header h1{color:#d4b574;font-size:clamp(32px,5vw,52px);font-weight:normal;margin:14px 0}
+header p{color:#c9c0ae;letter-spacing:2px;font-size:12px}
+.back{display:inline-block;color:#d4b574;text-decoration:none;border:1px solid #8c713d;padding:10px 18px;margin:8px 0;letter-spacing:1px;font-size:13px}
+.back:hover{background:#d4b574;color:#080808}
+.intro{max-width:850px;margin:auto;padding:12px 22px 25px;text-align:center;line-height:1.8;color:#d0c8ba}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 245px;gap:22px;max-width:1450px;margin:auto;padding:0 18px;align-items:start}
+.gallery{min-width:0}
+.section-title{text-align:center;color:#d4b574;font-size:25px;font-weight:normal;margin:15px 10px}
+.carousel{position:relative;background:#000}
+.slide{display:none;text-align:center;margin:0}
+.slide.active{display:block;animation:fade .7s}
+.slide img{display:block;width:100%;height:min(62vw,680px);min-height:300px;object-fit:contain;background:#000}
+.caption{color:#d4b574;padding:13px 10px 20px;font-size:17px;letter-spacing:.5px}
+.arrow{position:absolute;top:43%;transform:translateY(-50%);width:46px;height:46px;border:1px solid #8c713d;border-radius:50%;background:#090909c9;color:#e0c27f;font-size:29px;cursor:pointer}
+.arrow:hover{background:#d4b574;color:#050505}
+.prev{left:14px}.next{right:14px}
+.dots{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:15px 10px 25px}
+.dot{width:11px;height:11px;border-radius:50%;border:1px solid #d4b574;background:#171717;padding:0;cursor:pointer}
+.dot.active{background:#d4b574}
+.music{margin:12px auto 40px;padding:20px 15px;text-align:center;border-top:1px solid #4e4027}
+.music p{color:#c9c0ae;line-height:1.7}
+.player{position:relative;width:100%;max-width:760px;margin:25px auto 5px;aspect-ratio:16/9;background:#000;border:1px solid #4e4027}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.prizes{border-left:1px solid #4e4027;padding:5px 0 20px 17px;margin-top:15px;min-width:0}
+.prizes h2{text-align:center;color:#d4b574;font-size:22px;font-weight:normal;line-height:1.35;margin:0 0 15px}
+.prize{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #302719}
+.prize img{width:76px;height:92px;object-fit:cover;background:#111;border:1px solid #554326}
+.year{color:#d4b574;font-size:12px;margin-bottom:4px}
+.prize h3{color:#e6d4aa;font-size:14px;font-weight:normal;line-height:1.35;margin:0 0 6px}
+.tag{display:inline-block;color:#090909;background:#d4b574;font-size:9px;letter-spacing:.5px;padding:4px 5px;margin-bottom:7px}
+.prize small{display:block;color:#c9c0ae;font-size:11px;line-height:1.5;margin-bottom:8px}
+.prize a{display:inline-block;color:#d4b574;border:1px solid #8c713d;padding:7px;background:#101010;font-size:11px;text-decoration:none;line-height:1.4}
+.prize a:hover{background:#d4b574;color:#080808}
+.note{font-size:11px;color:#94866d;line-height:1.5;margin-top:12px}
+footer{text-align:center;color:#94866d;padding:25px 15px;border-top:1px solid #302719;font-size:13px;line-height:1.7}
+@keyframes fade{from{opacity:.35}to{opacity:1}}
+@media(max-width:850px){
+ .layout{grid-template-columns:minmax(0,1fr);padding:0 10px}
+ .prizes{border-left:0;border-top:1px solid #4e4027;padding:20px 0;margin-top:5px}
+ .prizes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+ .prize{padding:12px 5px}
+}
+@media(max-width:520px){
+ .prizes-grid{display:block}
+ .slide img{height:65vh;min-height:260px}
+ .arrow{width:39px;height:39px;font-size:24px}
+ .prev{left:7px}.next{right:7px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="back" href="index.html">← VOLVER AL MUSEO</a>
+  <h1>La sala de los Cuartetos</h1>
+  <p>MUSEO FOTOGRÁFICO DEL CARNAVAL DE CÁDIZ</p>
+</header>
+
+<div class="intro">
+  <p>La parodia, los personajes inolvidables, la ironía y el ingenio.
+  Un homenaje a los cuartetos que convierten el escenario del Gran Teatro
+  Falla en un lugar de humor, imaginación y arte gaditano.</p>
+</div>
+
+<main class="layout">
+<section class="gallery">
+  <h2 class="section-title">Galería fotográfica</h2>
+
+  <div class="carousel" aria-label="Galería de cuartetos">
+    <figure class="slide active">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-013-800-600-80.jpg" alt="Cuarteto Los Cocos de Cadi">
+      <figcaption class="caption">Los Cocos de Cadi · COAC 2024</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-014-800-600-80.jpg" alt="Actuación de Los Cocos de Cadi">
+      <figcaption class="caption">Los Cocos de Cadi · Una noche en el Falla</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-015-800-600-80.jpg" alt="Escena del cuarteto">
+      <figcaption class="caption">El humor del Carnaval de Cádiz</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-016-800-600-80.jpg" alt="Los Cocos de Cadi en escena">
+      <figcaption class="caption">Los Cocos de Cadi · COAC 2024</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-017-800-600-80.jpg" alt="Representación del cuarteto">
+      <figcaption class="caption">Personajes y parodia</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-018-800-600-80.jpg" alt="Actuación carnavalesca">
+      <figcaption class="caption">La magia del escenario</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-019-800-600-80.jpg" alt="Cuarteto en el Gran Teatro Falla">
+      <figcaption class="caption">Carnaval en estado puro</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-020-800-600-80.jpg" alt="Los Cocos de Cadi actuando">
+      <figcaption class="caption">Los Cocos de Cadi · Final del COAC 2024</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-021-800-600-80.jpg" alt="Escena de humor del cuarteto">
+      <figcaption class="caption">Ingenio y humor gaditano</figcaption>
+    </figure>
+
+    <figure class="slide">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-022-800-600-80.jpg" alt="Actuación de Carnaval">
+      <figcaption class="caption">El cuarteto sobre las tablas</figcaption>
+    </figure>
+
+    <button class="arrow prev" type="button" aria-label="Fotografía anterior" onclick="mover(-1)">‹</button>
+    <button class="arrow next" type="button" aria-label="Fotografía siguiente" onclick="mover(1)">›</button>
+  </div>
+
+  <div class="dots" id="dots" aria-label="Elegir fotografía"></div>
+
+  <section class="music">
+    <h2 class="section-title">Coplas y actuaciones</h2>
+    <p>En este espacio añadiremos las actuaciones y músicas de tus cuartetos favoritos.</p>
+    <p>Cuando me envíes los enlaces de YouTube, prepararé el reproductor para esta sala.</p>
+    <div class="player">
+      <iframe id="reproductor"
+        src="about:blank"
+        title="Reproductor de cuartetos"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+</section>
+
+<aside class="prizes">
+  <h2>Cuartetos premiados</h2>
+  <div class="prizes-grid">
+
+    <article class="prize">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-013-800-600-80.jpg" alt="Los Cocos de Cadi">
+      <div>
+        <div class="year">2024</div>
+        <h3>Los Cocos de Cadi</h3>
+        <span class="tag">PRIMER PREMIO</span>
+        <small>COAC 2024</small>
+        <a href="https://www.portaldecadiz.com/carnaval/97781-fotogaleria-las-fotos-del-cuarteto-los-cocos-de-cadi-en-la-gran-final-del-coac-2024" target="_blank" rel="noopener">Ver fotografías</a>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-014-800-600-80.jpg" alt="Punk y circo">
+      <div>
+        <div class="year">2024</div>
+        <h3>Punk y circo: la lucha continúa</h3>
+        <span class="tag">SEGUNDO PREMIO</span>
+        <small>COAC 2024</small>
+        <a href="https://www.carnavaldecadiz.com/actualidad/puntos-de-la-final-coac-2024/" target="_blank" rel="noopener">Consultar resultados</a>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-015-800-600-80.jpg" alt="En mi caseta cabe todo el mundo">
+      <div>
+        <div class="year">2024</div>
+        <h3>En mi caseta cabe todo el mundo</h3>
+        <span class="tag">TERCER PREMIO</span>
+        <small>COAC 2024</small>
+        <a href="https://www.carnavaldecadiz.com/actualidad/puntos-de-la-final-coac-2024/" target="_blank" rel="noopener">Consultar resultados</a>
+      </div>
+    </article>
+
+    <article class="prize">
+      <img src="https://www.portaldecadiz.com/images/igallery/resized/cuarteto--los-cocos-de-cadi--3332/10022024-los-cocos-de-cadi-016-800-600-80.jpg" alt="Un clásico nunca falla">
+      <div>
+        <div class="year">2025</div>
+        <h3>Un clásico nunca falla</h3>
+        <span class="tag">CUARTETO COAC</span>
+        <small>COAC 2025</small>
+        <a href="https://www.portaldecadiz.com/carnaval/123797-disfruta-la-fotogaleria-del-cuarteto-un-clasico-nunca-falla-en-las-semifinales-del-coac-2025" target="_blank" rel="noopener">Ver fotografías</a>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">La selección de premios se puede ampliar con más años, fotografías y enlaces musicales.</p>
+</aside>
+</main>
+
+<footer>
+  Museo Fotográfico del Carnaval de Cádiz · Sala de los Cuartetos
+  <br><br>
+  <a class="back" href="index.html">← VOLVER A LA PORTADA</a>
+</footer>
+
+<script>
+const slides=Array.from(document.querySelectorAll('.slide'));
+const dotsBox=document.getElementById('dots');
+let actual=0;
+let reloj;
+
+slides.forEach((slide,i)=>{
+  const dot=document.createElement('button');
+  dot.type='button';
+  dot.className='dot'+(i===0?' active':'');
+  dot.setAttribute('aria-label','Ver fotografía '+(i+1));
+  dot.onclick=()=>{mostrar(i);reiniciarReloj()};
+  dotsBox.appendChild(dot);
+});
+
+const dots=Array.from(dotsBox.children);
+
+function mostrar(n){
+  actual=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===actual));
+  dots.forEach((d,i)=>d.classList.toggle('active',i===actual));
+}
+
+function mover(n){
+  mostrar(actual+n);
+  reiniciarReloj();
+}
+
+function reiniciarReloj(){
+  clearInterval(reloj);
+  reloj=setInterval(()=>mostrar(actual+1),5500);
+}
+
+reiniciarReloj();
+</script>
+</body>
+</html>
